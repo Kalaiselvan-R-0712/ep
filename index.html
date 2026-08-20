@@ -1,0 +1,5550 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STACKLY | Luxury Event Planning Agency</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf4f5',
+                            100: '#fbe8eb',
+                            500: '#e03e52',
+                            600: '#cc2f43',
+                            900: '#1a1a1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(11, 11, 11, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .hero-video {
+            object-fit: cover;
+        }
+        .luxury-card {
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.6), rgba(15, 15, 15, 0.8));
+            backdrop-filter: blur(10px);
+        }
+    </style>
+<style>
+/* Clickable visual elements */
+.se-moment,
+.se-process-step,
+.se-cinematic-image-link,
+.se-curation-image-link,
+.stackly-footer-v2__logo,
+.se-process-step-link {
+    text-decoration: none;
+}
+.se-moment,
+.se-process-step-link {
+    color: inherit;
+}
+.se-moment:focus-visible,
+.se-process-step-link:focus-visible,
+.se-cinematic-image-link:focus-visible,
+.se-curation-image-link:focus-visible {
+    outline: 2px solid #e03e52;
+    outline-offset: 4px;
+}
+.se-cinematic-image-link,
+.se-curation-image-link {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+}
+.se-cinematic-image-link img,
+.se-curation-image-link img {
+    position: absolute;
+    inset: 0;
+}
+</style><style>
+/* Fix: Stackly Promise circular badge is fully clickable */
+a.se-legacy__badge {
+    text-decoration: none !important;
+    color: inherit !important;
+    cursor: pointer;
+    outline: none;
+}
+a.se-legacy__badge:hover,
+a.se-legacy__badge:focus-visible {
+    text-decoration: none !important;
+}
+a.se-legacy__badge:focus-visible {
+    box-shadow: 0 0 0 3px rgba(224,62,82,.25), 0 25px 60px rgba(0,0,0,.3);
+}
+</style><link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/><style>
+/* =========================================================
+   STACKLY — UNIVERSAL PREMIUM MOTION + HOVER SYSTEM
+   ========================================================= */
+
+/* AOS safety / visual polish */
+[data-aos] {
+    will-change: transform, opacity;
+}
+
+/* Interactive lift */
+.interactive-lift {
+    position: relative;
+    transition:
+        transform .35s cubic-bezier(.2,.7,.2,1),
+        box-shadow .35s ease,
+        border-color .35s ease,
+        color .3s ease,
+        background-color .35s ease !important;
+}
+
+/* ---------------------------------------------------------
+   RETURN FROM 404 — TEMPORARILY DISABLE HOVER
+   Prevents the previously clicked card from remaining
+   visually hovered after browser history restoration.
+   --------------------------------------------------------- */
+
+html.stackly-returning-from-404 .scf-contact__item,
+html.stackly-returning-from-404 .scf-contact__item * {
+    pointer-events: none !important;
+}
+
+.interactive-lift:hover {
+    transform: translateY(-5px);
+}
+
+/* Buttons */
+button.interactive-lift:hover,
+a.bg-brand-500.interactive-lift:hover,
+a[class*="rounded-full"].interactive-lift:hover {
+    box-shadow: 0 18px 38px rgba(224,62,82,.24);
+}
+
+/* Magnetic-looking arrow motion */
+a i[class*="fa-arrow-right"],
+a i[class*="fa-arrow-up-right"],
+button i[class*="fa-arrow-right"],
+button i[class*="fa-paper-plane"] {
+    transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+a:hover i[class*="fa-arrow-right"],
+a:hover i[class*="fa-arrow-up-right"],
+button:hover i[class*="fa-arrow-right"],
+button:hover i[class*="fa-paper-plane"] {
+    transform: translateX(4px);
+}
+
+/* Cards */
+.motion-card {
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        box-shadow .55s ease,
+        border-color .45s ease,
+        background .45s ease !important;
+}
+.motion-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 28px 70px rgba(0,0,0,.38);
+}
+
+/* Images */
+.motion-image {
+    transition:
+        transform .9s cubic-bezier(.2,.7,.2,1),
+        filter .6s ease !important;
+}
+.motion-image:hover {
+    filter: saturate(1.08) contrast(1.06);
+}
+
+/* Standalone image links */
+.se-cinematic-image-link:hover img,
+.se-curation-image-link:hover img {
+    transform: scale(1.045);
+}
+
+/* Service cards — glowing top accent */
+#services .luxury-card::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e03e52, transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .45s ease;
+}
+#services .luxury-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Portfolio image overlay enhancement */
+#portfolio .group.relative.rounded-3xl::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        135deg,
+        transparent 35%,
+        rgba(224,62,82,.12) 50%,
+        transparent 65%
+    );
+    transform: translateX(-120%);
+    transition: transform .8s ease;
+    pointer-events: none;
+}
+#portfolio .group.relative.rounded-3xl:hover::before {
+    transform: translateX(120%);
+}
+
+/* Form controls */
+input, select, textarea {
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .25s ease,
+        background-color .3s ease !important;
+}
+input:hover, select:hover, textarea:hover {
+    border-color: rgba(224,62,82,.4) !important;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #e03e52 !important;
+    box-shadow: 0 0 0 4px rgba(224,62,82,.08), 0 8px 24px rgba(0,0,0,.2) !important;
+    transform: translateY(-1px);
+}
+
+/* Social buttons */
+.scf-socials a,
+.stackly-footer-v2__socials a {
+    transition:
+        transform .35s cubic-bezier(.2,.7,.2,1),
+        color .25s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .35s ease !important;
+}
+.scf-socials a:hover,
+.stackly-footer-v2__socials a:hover {
+    transform: translateY(-6px) rotate(-3deg) scale(1.06) !important;
+}
+
+/* Contact rail */
+.scf-contact__item:hover {
+    box-shadow: inset 0 -2px 0 #e03e52;
+}
+
+/* Footer nav */
+.scf-nav-block a {
+    position: relative;
+}
+.scf-nav-block a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background: #e03e52;
+    transition: width .3s ease;
+}
+.scf-nav-block a:hover::before {
+    width: calc(100% - 20px);
+}
+
+/* Circular CTA / badges */
+.scf-round-cta,
+.se-legacy__badge {
+    transition:
+        transform .5s cubic-bezier(.2,.7,.2,1),
+        box-shadow .4s ease,
+        background .35s ease,
+        border-color .35s ease !important;
+}
+.scf-round-cta:hover {
+    transform: rotate(6deg) scale(1.06) !important;
+    box-shadow: 0 28px 70px rgba(224,62,82,.23);
+}
+
+/* Process steps */
+.se-process-step-link {
+    transition:
+        transform .45s cubic-bezier(.2,.7,.2,1),
+        box-shadow .4s ease,
+        border-color .35s ease,
+        background .35s ease !important;
+}
+.se-process-step-link:hover {
+    transform: translateY(-12px) !important;
+}
+
+/* Curation chip */
+.se-curation-chip {
+    transition:
+        transform .5s cubic-bezier(.2,.7,.2,1),
+        box-shadow .4s ease,
+        border-color .35s ease !important;
+}
+.se-curation-visual:hover .se-curation-chip {
+    transform: rotate(-1deg) translateY(-8px);
+    box-shadow: 0 22px 50px rgba(0,0,0,.38);
+    border-color: rgba(224,62,82,.7);
+}
+
+/* Footer newsletter */
+.scf-news {
+    transition:
+        transform .45s cubic-bezier(.2,.7,.2,1),
+        box-shadow .45s ease,
+        border-color .35s ease !important;
+}
+.scf-news:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 25px 60px rgba(0,0,0,.3);
+    border-color: rgba(224,62,82,.48);
+}
+
+/* Accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #e03e52;
+    outline-offset: 3px;
+}
+
+/* Preserve reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* Touch devices: retain AOS and interactions without exaggerated transforms */
+@media (max-width: 640px) {
+    .interactive-lift:hover,
+    .motion-card:hover,
+    .se-process-step-link:hover {
+        transform: translateY(-3px) !important;
+    }
+}
+</style><style>
+/* Full AOS animation coverage */
+[data-aos] {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Keep animated links/cards polished while AOS is active. */
+[data-aos][class*="interactive-lift"],
+[data-aos][class*="motion-card"] {
+    transform-origin: center center;
+}
+
+@media (max-width: 640px) {
+    [data-aos] {
+        --aos-mobile-scale: .985;
+    }
+}
+</style><style>
+/* =========================================================
+   STACKLY — FINAL VIEWPORT / HORIZONTAL-OVERFLOW FIX
+   Prevent AOS transforms, oversized decorative layers, and
+   fixed-width children from creating a page-level scrollbar.
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important;
+    overflow-x: clip !important;
+}
+
+body {
+    position: relative;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+img,
+video,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+header,
+main,
+section,
+footer {
+    max-width: 100vw;
+}
+
+/* Hero must never exceed the viewport, including AOS transforms. */
+section.relative.min-h-screen {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden !important;
+}
+
+section.relative.min-h-screen > video {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+/* Decorative blur/glow layers stay inside the hero viewport. */
+section.relative.min-h-screen > [class*="w-[600px]"],
+section.relative.min-h-screen > [class*="w-[400px]"] {
+    max-width: 100vw;
+    pointer-events: none;
+}
+
+/* AOS transforms should never create document-wide horizontal overflow. */
+[data-aos] {
+    max-width: 100%;
+}
+
+/* Keep wide editorial sections constrained. */
+.stackly-elevate,
+.stackly-creative-footer,
+.stackly-footer-v2,
+.scf-wrap,
+.se-wrap,
+.se-cinematic__content {
+    max-width: 100vw;
+    overflow-x: clip;
+}
+
+/* Grids cannot force the viewport wider. */
+.grid,
+[class*="grid-template-columns"] {
+    min-width: 0;
+}
+
+@media (max-width: 900px) {
+    html,
+    body {
+        overflow-x: hidden !important;
+        overflow-x: clip !important;
+    }
+
+    .max-w-7xl,
+    .max-w-5xl,
+    .max-w-4xl,
+    .max-w-[1500px],
+    .max-w-[1400px] {
+        max-width: 100%;
+    }
+}
+
+/* Respect reduced motion and prevent animated overflow on tiny screens. */
+@media (max-width: 420px), (prefers-reduced-motion: reduce) {
+    [data-aos] {
+        transform: none !important;
+    }
+}
+</style><style>
+/* =========================================================
+   STACKLY — COMPLETE LOCAL VISUAL FILL
+   Every newly added image comes from the uploaded ZIP.
+   ========================================================= */
+
+.se-card-image {
+    display: block;
+    width: calc(100% + 0px);
+    height: 190px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin: 0 0 22px;
+    border: 1px solid rgba(255,255,255,.10);
+    filter: saturate(.96) contrast(1.02);
+    transition:
+        transform .65s cubic-bezier(.2,.7,.2,1),
+        filter .45s ease,
+        box-shadow .45s ease;
+}
+
+.luxury-card:hover .se-card-image {
+    transform: scale(1.035);
+    filter: saturate(1.08) contrast(1.05);
+    box-shadow: 0 18px 40px rgba(0,0,0,.28);
+}
+
+.se-contact-image {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 28px;
+    margin: 0 auto 34px;
+    border: 1px solid rgba(255,255,255,.10);
+    filter: saturate(.94) contrast(1.03);
+    transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .45s ease;
+}
+.se-contact-image:hover {
+    transform: scale(1.015);
+    filter: saturate(1.08) contrast(1.06);
+}
+
+/* Keep card image additions elegant on smaller screens. */
+@media (max-width: 640px) {
+    .se-card-image {
+        height: 165px;
+        border-radius: 15px;
+    }
+    .se-contact-image {
+        max-height: 220px;
+        border-radius: 20px;
+    }
+}
+
+/* Copyright/legal row — visible, readable, and still premium. */
+.scf-bottom.scf-copyright-visible {
+    min-height: 74px;
+    padding: 22px 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    position: relative;
+    z-index: 5;
+}
+.scf-bottom.scf-copyright-visible p {
+    color: #8f8f98 !important;
+    font-size: 11px !important;
+    line-height: 1.6;
+    letter-spacing: .02em;
+}
+.scf-bottom.scf-copyright-visible > div {
+    gap: 20px;
+}
+.scf-bottom.scf-copyright-visible a {
+    color: #8f8f98 !important;
+    font-size: 11px !important;
+    opacity: 1 !important;
+}
+.scf-bottom.scf-copyright-visible a:hover {
+    color: #ffffff !important;
+}
+@media (max-width: 700px) {
+    .scf-bottom.scf-copyright-visible {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .scf-bottom.scf-copyright-visible > div {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+/* FINAL LEGAL ROW SAFETY — never animate or hide this row */
+.scf-bottom.scf-copyright-visible.aos-init,
+.scf-bottom.scf-copyright-visible.aos-animate {
+    opacity:1 !important;
+    visibility:visible !important;
+    transform:none !important;
+}
+</style>
+
+
+<style>
+/* =========================================================
+   STACKLY — CLEAN SPACING + MODERN RESPONSIVE POLISH
+   Removes excessive vertical gaps while preserving content.
+   ========================================================= */
+:root{
+  --brand:#e03e52;
+  --brand-dark:#c92e42;
+  --surface:#0b0b0b;
+  --line:rgba(255,255,255,.09);
+}
+
+html{scroll-padding-top:88px}
+body{background:#080808}
+
+/* Cleaner section rhythm */
+#about,#services,#portfolio,#packages,#contact{
+  padding-top:82px !important;
+  padding-bottom:82px !important;
+}
+#about > div,#services > div,#portfolio > div,#packages > div,#contact > div{
+  max-width:100%;
+}
+#about + section,#services + section,#portfolio + section,#packages + section{
+  margin-top:0 !important;
+}
+
+/* Reduce decorative editorial breathing room */
+.se-heading{padding:76px 0 34px !important}
+.se-moments-grid{padding-bottom:72px !important}
+.se-process-head{padding:76px 0 45px !important}
+.se-process-track{padding-bottom:76px !important}
+.se-curation-grid{min-height:0 !important;padding:78px 0 !important}
+.se-legacy__quote{padding:78px 0 !important}
+.stackly-legacy{min-height:620px !important}
+.stackly-cinematic{min-height:620px !important}
+
+/* Compact cards without looking cramped */
+.luxury-card{padding:28px !important}
+.se-card-image{margin-bottom:18px !important}
+#services .grid,#packages .grid,#portfolio .grid{gap:22px !important}
+
+/* Hero: strong visual impact, less empty bottom space */
+section.relative.min-h-screen{
+  min-height:calc(100svh - 0px) !important;
+  padding-top:105px !important;
+  padding-bottom:42px !important;
+}
+.hero-video{filter:saturate(.92) contrast(1.05)}
+
+/* Header polish */
+header{height:78px}
+header > div{height:78px;padding-top:0 !important;padding-bottom:0 !important}
+header nav a{position:relative;padding:9px 0}
+header nav a::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:2px;
+  height:2px;
+  background:var(--brand);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .3s ease;
+}
+header nav a:hover::after{transform:scaleX(1)}
+header nav a:hover{color:#fff !important}
+
+/* Mobile menu */
+.mobile-menu{
+  position:fixed;
+  inset:78px 0 0;
+  z-index:49;
+  background:rgba(5,5,5,.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .3s ease, visibility .3s ease;
+}
+.mobile-menu.is-open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.mobile-menu__panel{
+  margin:12px 16px 0;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:24px;
+  background:linear-gradient(145deg,rgba(24,24,24,.98),rgba(10,10,10,.98));
+  box-shadow:0 25px 80px rgba(0,0,0,.5);
+  transform:translateY(-10px);
+  transition:transform .3s ease;
+}
+.mobile-menu.is-open .mobile-menu__panel{transform:translateY(0)}
+.mobile-menu__panel a{
+  min-height:52px;
+  padding:0 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:15px;
+  color:#d7d7dc;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  transition:.25s ease;
+}
+.mobile-menu__panel a:hover{
+  color:#fff;
+  background:rgba(224,62,82,.10);
+  padding-left:20px;
+}
+.mobile-menu__panel a i{
+  color:#55555d;
+  transition:.25s ease;
+}
+.mobile-menu__panel a:hover i{color:var(--brand);transform:translateX(4px)}
+.mobile-menu__panel .mobile-menu__cta{
+  margin-top:8px;
+  color:#fff;
+  background:var(--brand);
+  justify-content:center;
+  gap:10px;
+  box-shadow:0 12px 30px rgba(224,62,82,.22);
+}
+.mobile-menu__panel .mobile-menu__cta:hover{
+  background:var(--brand-dark);
+  padding-left:16px;
+}
+
+/* Better mobile rhythm */
+@media(max-width:900px){
+  #about,#services,#portfolio,#packages,#contact{
+    padding-top:64px !important;
+    padding-bottom:64px !important;
+  }
+  .stackly-legacy{min-height:610px !important}
+  .stackly-cinematic{min-height:580px !important}
+  .se-heading,.se-process-head{padding-top:62px !important}
+}
+@media(max-width:640px){
+  section.relative.min-h-screen{
+    min-height:760px !important;
+    padding-top:96px !important;
+    padding-bottom:28px !important;
+  }
+  #about,#services,#portfolio,#packages,#contact{
+    padding-top:54px !important;
+    padding-bottom:54px !important;
+  }
+  .luxury-card{padding:22px !important}
+  .se-heading{padding:54px 0 28px !important}
+  .se-moments-grid{padding-bottom:54px !important}
+  .se-process-head{padding:54px 0 32px !important}
+  .se-process-track{padding-bottom:54px !important}
+  .se-curation-grid{padding:58px 0 !important}
+  .se-legacy__quote{padding:58px 0 0 !important}
+  .scf-signature{padding:48px 0 !important}
+  .scf-main{padding:52px 0 44px !important}
+}
+</style>
+
+
+<style id="stackly-full-responsive">
+/* =========================================================
+   STACKLY — FULL RESPONSIVE SYSTEM
+   Desktop first, then tablet + mobile precision.
+   ========================================================= */
+
+*,
+*::before,
+*::after{box-sizing:border-box}
+
+html{width:100%;max-width:100%;overflow-x:hidden}
+body{width:100%;max-width:100%;overflow-x:hidden}
+img,video,svg{max-width:100%;height:auto}
+iframe{max-width:100%}
+button,input,textarea,select{font:inherit}
+section,header,footer,main,nav,article,div{min-width:0}
+
+/* Prevent long content from creating horizontal overflow */
+p,h1,h2,h3,h4,h5,h6,a,span,li{
+  overflow-wrap:anywhere;
+}
+
+/* Responsive container */
+.se-wrap,
+.se-cinematic__content,
+.scf-wrap{
+  width:min(1400px,calc(100% - 56px));
+  margin-inline:auto;
+}
+
+/* ---------- Large desktop ---------- */
+@media (min-width:1441px){
+  .se-wrap,
+  .se-cinematic__content,
+  .scf-wrap{
+    width:min(1480px,calc(100% - 96px));
+  }
+
+  section.relative.min-h-screen{
+    padding-left:6vw !important;
+    padding-right:6vw !important;
+  }
+}
+
+/* ---------- Laptop / smaller desktop ---------- */
+@media (max-width:1200px){
+  .se-wrap,
+  .se-cinematic__content,
+  .scf-wrap{
+    width:min(1200px,calc(100% - 48px));
+  }
+
+  header > div{
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+
+  header nav{
+    gap:22px !important;
+  }
+
+  .se-curation-grid{
+    gap:55px !important;
+  }
+
+  .scf-main{
+    grid-template-columns:1fr 1.2fr .85fr !important;
+  }
+
+  .scf-navigation{
+    padding-inline:28px !important;
+    gap:25px !important;
+  }
+
+  .scf-brand{
+    padding-right:30px !important;
+  }
+
+  .scf-news{
+    margin-left:25px !important;
+  }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width:1024px){
+  header{
+    height:74px !important;
+  }
+
+  header > div{
+    height:74px !important;
+  }
+
+  header nav{
+    display:none !important;
+  }
+
+  #menuToggle{
+    display:inline-flex !important;
+  }
+
+  section.relative.min-h-screen{
+    min-height:720px !important;
+    padding-top:105px !important;
+    padding-bottom:50px !important;
+  }
+
+  .se-heading{
+    grid-template-columns:1fr !important;
+    gap:25px !important;
+  }
+
+  .se-moments-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .se-moment--large{
+    grid-column:1/-1 !important;
+    min-height:500px !important;
+  }
+
+  .se-moment{
+    min-height:400px !important;
+  }
+
+  .se-curation-grid{
+    grid-template-columns:1fr !important;
+    gap:45px !important;
+  }
+
+  .se-curation-copy{
+    max-width:760px;
+  }
+
+  .se-curation-visual{
+    min-height:520px !important;
+  }
+
+  .se-process-head{
+    grid-template-columns:1fr !important;
+    gap:25px !important;
+  }
+
+  .se-process-track{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .se-process-line{display:none !important}
+
+  .se-legacy__wrap{
+    gap:45px !important;
+  }
+
+  .scf-signature{
+    grid-template-columns:45px minmax(0,1fr) 135px !important;
+    gap:24px !important;
+  }
+
+  .scf-round-cta{
+    width:125px !important;
+    height:125px !important;
+  }
+
+  .scf-contact{
+    grid-template-columns:130px repeat(3,1fr) !important;
+  }
+
+  .scf-main{
+    grid-template-columns:1fr 1.35fr !important;
+  }
+
+  .scf-brand{
+    grid-column:1/-1 !important;
+    padding:0 0 35px !important;
+  }
+
+  .scf-news{
+    margin-left:28px !important;
+  }
+}
+
+/* ---------- Mobile landscape / small tablet ---------- */
+@media (max-width:768px){
+  .se-wrap,
+  .se-cinematic__content,
+  .scf-wrap{
+    width:calc(100% - 32px) !important;
+  }
+
+  header > div{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+
+  header img{
+    max-height:42px;
+    width:auto;
+  }
+
+  section.relative.min-h-screen{
+    min-height:700px !important;
+    padding-top:92px !important;
+    padding-bottom:35px !important;
+  }
+
+  section.relative.min-h-screen h1{
+    font-size:clamp(2.7rem,10vw,5rem) !important;
+    line-height:.92 !important;
+  }
+
+  section.relative.min-h-screen p{
+    max-width:620px;
+  }
+
+  .se-heading{
+    padding:58px 0 30px !important;
+  }
+
+  .se-moments-grid{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+    padding-bottom:58px !important;
+  }
+
+  .se-moment--large,
+  .se-moment{
+    grid-column:auto !important;
+    min-height:430px !important;
+  }
+
+  .se-cinematic{
+    min-height:590px !important;
+  }
+
+  .se-cinematic__content{
+    width:calc(100% - 32px) !important;
+  }
+
+  .se-cinematic__content h2{
+    font-size:clamp(3rem,13vw,5.4rem) !important;
+  }
+
+  .se-cinematic__index{
+    font-size:6rem !important;
+  }
+
+  .se-curation-grid{
+    padding:60px 0 !important;
+    gap:35px !important;
+  }
+
+  .se-curation-visual{
+    min-height:450px !important;
+  }
+
+  .se-curation-frame{
+    width:82% !important;
+    height:420px !important;
+  }
+
+  .se-curation-chip{
+    left:0 !important;
+    bottom:2% !important;
+  }
+
+  .se-process-head{
+    padding:58px 0 34px !important;
+  }
+
+  .se-process-track{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+    padding-bottom:58px !important;
+  }
+
+  .se-process-step{
+    min-height:245px !important;
+  }
+
+  .stackly-legacy{
+    min-height:650px !important;
+  }
+
+  .se-legacy__wrap{
+    min-height:650px !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    gap:30px !important;
+  }
+
+  .se-legacy__quote{
+    padding:55px 0 0 !important;
+  }
+
+  .scf-signature{
+    min-height:auto !important;
+    padding:55px 0 !important;
+    grid-template-columns:1fr !important;
+    gap:20px !important;
+  }
+
+  .scf-signature__number{
+    writing-mode:initial !important;
+    transform:none !important;
+  }
+
+  .scf-round-cta{
+    width:100% !important;
+    height:64px !important;
+    border-radius:0 !important;
+    flex-direction:row !important;
+    justify-content:space-between !important;
+    padding:0 20px !important;
+  }
+
+  .scf-contact{
+    grid-template-columns:1fr !important;
+  }
+
+  .scf-contact__label{
+    padding:22px 0 10px !important;
+  }
+
+  .scf-contact__item{
+    min-height:72px !important;
+    border-left:0 !important;
+    border-top:1px solid var(--scf-line) !important;
+    padding:17px 0 !important;
+  }
+
+  .scf-main{
+    grid-template-columns:1fr !important;
+    padding:52px 0 45px !important;
+  }
+
+  .scf-brand{
+    padding:0 0 35px !important;
+  }
+
+  .scf-navigation{
+    grid-template-columns:1fr 1fr !important;
+    padding:32px 0 !important;
+    border-left:0 !important;
+    border-right:0 !important;
+    border-top:1px solid var(--scf-line) !important;
+    border-bottom:1px solid var(--scf-line) !important;
+  }
+
+  .scf-news{
+    margin:30px 0 0 !important;
+  }
+
+  .scf-bottom{
+    flex-wrap:wrap;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width:600px){
+  .se-wrap,
+  .se-cinematic__content,
+  .scf-wrap{
+    width:calc(100% - 28px) !important;
+  }
+
+  header{
+    height:70px !important;
+  }
+
+  header > div{
+    height:70px !important;
+    padding-left:14px !important;
+    padding-right:14px !important;
+  }
+
+  header img{
+    height:36px !important;
+  }
+
+  .mobile-menu{
+    inset:70px 0 0 !important;
+  }
+
+  section.relative.min-h-screen{
+    min-height:680px !important;
+    padding-top:88px !important;
+    padding-bottom:28px !important;
+  }
+
+  section.relative.min-h-screen h1{
+    font-size:clamp(2.45rem,12.5vw,4.1rem) !important;
+    line-height:.9 !important;
+    letter-spacing:-.055em !important;
+  }
+
+  section.relative.min-h-screen p{
+    font-size:13px !important;
+    line-height:1.75 !important;
+  }
+
+  section.relative.min-h-screen a{
+    min-height:46px;
+  }
+
+  #about,#services,#portfolio,#packages,#contact{
+    padding-top:52px !important;
+    padding-bottom:52px !important;
+  }
+
+  .se-heading{
+    padding:50px 0 25px !important;
+  }
+
+  .se-heading h2,
+  .se-process-head h2,
+  .se-curation-copy h2{
+    font-size:clamp(2.65rem,12vw,4.2rem) !important;
+    line-height:.9 !important;
+  }
+
+  .se-moments-grid{
+    padding-bottom:50px !important;
+  }
+
+  .se-moment--large,
+  .se-moment{
+    min-height:390px !important;
+  }
+
+  .se-cinematic{
+    min-height:570px !important;
+  }
+
+  .se-cinematic__content h2{
+    font-size:clamp(2.9rem,14vw,4.8rem) !important;
+  }
+
+  .se-cinematic__content p{
+    font-size:11px !important;
+    line-height:1.75 !important;
+  }
+
+  .se-cinematic__index{
+    font-size:4.7rem !important;
+    bottom:4% !important;
+  }
+
+  .se-curation-grid{
+    padding:52px 0 !important;
+  }
+
+  .se-curation-visual{
+    min-height:390px !important;
+  }
+
+  .se-curation-frame{
+    width:88% !important;
+    height:360px !important;
+  }
+
+  .se-curation-chip{
+    width:145px !important;
+    min-height:120px !important;
+    padding:18px !important;
+  }
+
+  .se-process-head{
+    padding:50px 0 28px !important;
+  }
+
+  .se-process-track{
+    padding-bottom:50px !important;
+  }
+
+  .se-process-step{
+    padding:0 20px 22px !important;
+    min-height:230px !important;
+  }
+
+  .se-process-step__icon{
+    margin:23px 0 30px !important;
+  }
+
+  .stackly-legacy{
+    min-height:610px !important;
+  }
+
+  .se-legacy__wrap{
+    min-height:610px !important;
+  }
+
+  .se-legacy__quote{
+    padding:48px 0 0 !important;
+  }
+
+  .se-legacy__quote h2{
+    font-size:clamp(2.8rem,13vw,4.7rem) !important;
+  }
+
+  .se-legacy__quote > p{
+    font-size:11px !important;
+  }
+
+  .se-legacy__badge{
+    width:110px !important;
+    height:110px !important;
+    flex-basis:110px !important;
+  }
+
+  .scf-signature{
+    padding:48px 0 !important;
+  }
+
+  .scf-signature h2{
+    font-size:clamp(2.7rem,13vw,4.2rem) !important;
+  }
+
+  .scf-navigation{
+    grid-template-columns:1fr !important;
+    gap:28px !important;
+  }
+
+  .scf-bottom{
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:12px !important;
+    padding:18px 0 !important;
+  }
+
+  .scf-bottom > div{
+    flex-wrap:wrap;
+  }
+}
+
+/* ---------- Narrow phones ---------- */
+@media (max-width:420px){
+  .se-wrap,
+  .se-cinematic__content,
+  .scf-wrap{
+    width:calc(100% - 24px) !important;
+  }
+
+  header > div{
+    padding-left:12px !important;
+    padding-right:12px !important;
+  }
+
+  header img{
+    height:33px !important;
+  }
+
+  #menuToggle{
+    width:40px !important;
+    height:40px !important;
+  }
+
+  section.relative.min-h-screen{
+    min-height:650px !important;
+    padding-top:84px !important;
+  }
+
+  section.relative.min-h-screen h1{
+    font-size:clamp(2.2rem,13.5vw,3.4rem) !important;
+  }
+
+  section.relative.min-h-screen .flex{
+    gap:8px !important;
+  }
+
+  section.relative.min-h-screen a{
+    padding-left:14px !important;
+    padding-right:14px !important;
+    font-size:11px !important;
+  }
+
+  .mobile-menu__panel{
+    margin:10px 10px 0 !important;
+    border-radius:20px !important;
+  }
+
+  .mobile-menu__panel a{
+    min-height:49px !important;
+    font-size:12px !important;
+  }
+
+  .se-moment--large,
+  .se-moment{
+    min-height:350px !important;
+  }
+
+  .se-curation-frame{
+    width:92% !important;
+    height:330px !important;
+  }
+
+  .se-curation-chip{
+    width:135px !important;
+    min-height:108px !important;
+    padding:15px !important;
+  }
+
+  .se-process-step{
+    min-height:220px !important;
+  }
+
+  .scf-brand__top{
+    align-items:flex-start !important;
+  }
+
+  .scf-brand__top > span{
+    font-size:7px !important;
+  }
+
+  .scf-socials{
+    flex-wrap:wrap;
+  }
+}
+
+/* ---------- Ultra-small fallback ---------- */
+@media (max-width:360px){
+  .se-wrap,
+  .se-cinematic__content,
+  .scf-wrap{
+    width:calc(100% - 20px) !important;
+  }
+
+  section.relative.min-h-screen h1{
+    font-size:2.05rem !important;
+  }
+
+  .se-cinematic__content h2{
+    font-size:2.65rem !important;
+  }
+
+  .se-heading h2,
+  .se-process-head h2,
+  .se-curation-copy h2,
+  .se-legacy__quote h2,
+  .scf-signature h2{
+    font-size:2.45rem !important;
+  }
+
+  .scf-contact__item{
+    gap:9px !important;
+  }
+}
+
+/* Accessibility + touch polish */
+@media (hover:none){
+  .se-curation-visual:hover .se-curation-frame img{
+    transform:none;
+  }
+
+  .se-process-step:hover{
+    transform:none;
+  }
+
+  .scf-socials a:hover,
+  .scf-nav-block a:hover,
+  .scf-contact__item:hover{
+    transform:none;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+
+
+<style id="stackly-hamburger-corner-fix">
+
+@media (max-width:1024px){
+
+  #menuToggle{
+    position:fixed !important;
+    top:37px !important;
+    right:24px !important;
+    transform:translateY(-50%) !important;
+    margin:0 !important;
+    z-index:1000 !important;
+    flex-shrink:0 !important;
+  }
+
+}
+
+@media (max-width:600px){
+
+  #menuToggle{
+    position:fixed !important;
+    top:35px !important;
+    right:14px !important;
+    width:44px !important;
+    height:44px !important;
+    z-index:1000 !important;
+  }
+
+}
+
+@media (max-width:420px){
+
+  #menuToggle{
+    position:fixed !important;
+    top:35px !important;
+    right:12px !important;
+    width:42px !important;
+    height:42px !important;
+    z-index:1000 !important;
+  }
+
+}
+
+@media (max-width: 600px){
+  #menuToggle{
+    right:14px !important;
+    width:44px !important;
+    height:44px !important;
+  }
+}
+
+@media (max-width: 420px){
+  #menuToggle{
+    right:12px !important;
+    width:42px !important;
+    height:42px !important;
+  }
+}
+
+/* MOBILE MENU — COMPLETE BACKGROUND SCROLL LOCK */
+
+html.menu-open{
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+
+body.menu-open{
+  position:fixed !important;
+  width:100% !important;
+  left:0 !important;
+  right:0 !important;
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+</style>
+
+
+<style id="stackly-mobile-menu-lock-polish">
+@media (max-width:1024px){
+.mobile-menu{
+  position:fixed !important;
+  top:74px !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:0 !important;
+  height:calc(100dvh - 74px) !important;
+  max-height:calc(100dvh - 74px) !important;
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+
+  .mobile-menu__panel{
+    max-height:calc(100dvh - 96px) !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain !important;
+    touch-action:pan-y !important;
+  }
+}
+
+@media (max-width:600px){
+  .mobile-menu{
+    top:70px !important;
+    height:calc(100dvh - 70px) !important;
+    max-height:calc(100dvh - 70px) !important;
+  }
+
+  .mobile-menu__panel{
+    max-height:calc(100dvh - 88px) !important;
+  }
+}
+</style>
+
+
+<style id="stackly-newsletter-validation">
+.scf-news .newsletter-form {
+  position: relative;
+}
+
+.scf-news .newsletter-form input {
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background-color .25s ease,
+    color .25s ease;
+}
+
+.scf-news .newsletter-form.is-invalid input {
+  border-color: #e03e52 !important;
+  box-shadow: 0 0 0 3px rgba(224,62,82,.10) !important;
+}
+
+.scf-news .newsletter-form.is-valid input {
+  border-color: rgba(56,189,248,.45) !important;
+  box-shadow: 0 0 0 3px rgba(56,189,248,.06) !important;
+}
+
+.scf-news .newsletter-error {
+  min-height: 18px;
+  margin-top: 8px;
+  color: #e97886;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.scf-news .newsletter-error.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scf-news .newsletter-form button {
+  min-width: 45px;
+}
+
+.scf-news .newsletter-form.is-submitting button {
+  pointer-events: none;
+  opacity: .7;
+}
+
+.scf-news .newsletter-form.is-submitting button i {
+  animation: newsletterSpin .7s linear infinite;
+}
+
+@keyframes newsletterSpin {
+  to { transform: rotate(360deg); }
+}
+</style>
+
+
+<style id="stackly-preloader-v2">
+/* =========================================================
+   STACKLY ALIEN-LUXURY PRELOADER
+   ========================================================= */
+.stackly-preloader{
+  position:fixed;
+  inset:0;
+  z-index:2147483647;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(224,62,82,.14), transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.025), transparent 42%),
+    #040405;
+  color:#fff;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .8s cubic-bezier(.22,1,.36,1), visibility .8s ease;
+}
+
+.stackly-preloader.is-done{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.sp-noise{
+  position:absolute;
+  inset:-30%;
+  opacity:.085;
+  pointer-events:none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.06) 0,
+      rgba(255,255,255,.06) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  animation:spNoise 8s steps(8,end) infinite;
+}
+
+.sp-vignette{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at center, transparent 34%, rgba(0,0,0,.3) 63%, rgba(0,0,0,.82) 100%);
+}
+
+.sp-scene{
+  position:relative;
+  width:min(760px,90vw);
+  height:min(760px,90vh);
+  min-height:540px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sp-core-glow{
+  position:absolute;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  background:rgba(224,62,82,.20);
+  filter:blur(70px);
+  animation:spGlow 2.8s ease-in-out infinite;
+}
+
+.sp-portal{
+  position:relative;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  transform:perspective(900px) rotateX(10deg);
+  filter:drop-shadow(0 0 30px rgba(224,62,82,.18));
+}
+
+.sp-portal::before,
+.sp-portal::after{
+  content:"";
+  position:absolute;
+  inset:7%;
+  border-radius:50%;
+  border:1px solid rgba(224,62,82,.18);
+  box-shadow:
+    0 0 30px rgba(224,62,82,.10),
+    inset 0 0 40px rgba(224,62,82,.08);
+}
+
+.sp-portal::after{
+  inset:17%;
+  border-color:rgba(255,255,255,.10);
+  animation:spPulseRing 2.4s ease-in-out infinite;
+}
+
+.sp-portal-ring{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.sp-ring-a{
+  inset:-5%;
+  border:1px solid rgba(224,62,82,.82);
+  box-shadow:0 0 24px rgba(224,62,82,.22);
+  animation:spSpin 6s linear infinite;
+}
+
+.sp-ring-a::before,
+.sp-ring-a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-5px;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#e03e52;
+  box-shadow:0 0 14px rgba(224,62,82,.95);
+  transform:translateX(-50%);
+}
+
+.sp-ring-a::after{
+  top:auto;
+  bottom:-5px;
+  left:20%;
+  width:4px;
+  height:4px;
+  background:#fff;
+  box-shadow:0 0 12px rgba(255,255,255,.9);
+}
+
+.sp-ring-b{
+  inset:9%;
+  border:1px dashed rgba(255,255,255,.20);
+  animation:spSpinReverse 11s linear infinite;
+}
+
+.sp-ring-c{
+  inset:25%;
+  border:1px solid rgba(224,62,82,.32);
+  animation:spSpin 4.5s linear infinite;
+}
+
+.sp-ring-c::after{
+  content:"";
+  position:absolute;
+  width:14px;
+  height:14px;
+  right:-7px;
+  top:50%;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:#e03e52;
+  box-shadow:0 0 20px rgba(224,62,82,.85);
+}
+
+.sp-portal-inner{
+  position:absolute;
+  inset:31%;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.10), transparent 25%),
+    radial-gradient(circle, rgba(224,62,82,.16), rgba(7,7,8,.97) 66%);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    inset 0 0 35px rgba(224,62,82,.12),
+    0 0 40px rgba(0,0,0,.55);
+}
+
+.sp-scan{
+  position:absolute;
+  left:15%;
+  right:15%;
+  top:31%;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg, transparent, #e03e52 35%, #fff 50%, #e03e52 65%, transparent);
+  box-shadow:0 0 16px rgba(224,62,82,.8);
+  animation:spScan 2.1s ease-in-out infinite;
+}
+
+.sp-logo-wrap{
+  position:relative;
+  z-index:4;
+  width:122px;
+  height:122px;
+  display:grid;
+  place-items:center;
+}
+
+.sp-logo-halo{
+  position:absolute;
+  inset:-10px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(224,62,82,.18), transparent 66%);
+  filter:blur(10px);
+  animation:spLogoHalo 2s ease-in-out infinite;
+}
+
+.sp-logo{
+  position:relative;
+  width:112px;
+  max-width:112px;
+  height:auto;
+  filter:
+    drop-shadow(0 0 9px rgba(224,62,82,.30))
+    drop-shadow(0 0 26px rgba(224,62,82,.17));
+  animation:spLogoFloat 2.5s ease-in-out infinite;
+}
+
+.sp-orbit{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.055);
+  pointer-events:none;
+}
+
+.sp-orbit-1{
+  width:420px;
+  height:160px;
+  transform:rotate(18deg);
+  animation:spOrbit 9s linear infinite;
+}
+
+.sp-orbit-2{
+  width:520px;
+  height:200px;
+  transform:rotate(-31deg);
+  animation:spOrbitReverse 12s linear infinite;
+}
+
+.sp-orbit-3{
+  width:650px;
+  height:260px;
+  transform:rotate(62deg);
+  opacity:.55;
+  animation:spOrbit 16s linear infinite;
+}
+
+.sp-particles{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.sp-particles span{
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#e03e52;
+  box-shadow:0 0 10px rgba(224,62,82,.85);
+  animation:spParticle var(--d) ease-in-out var(--delay) infinite;
+}
+
+.sp-copy{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:7%;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  padding:0 20px;
+}
+
+.sp-kicker{
+  color:#e03e52;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+}
+
+.sp-copy strong{
+  color:#d6d6da;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  min-height:16px;
+}
+
+.sp-progress{
+  width:min(300px,60vw);
+  height:2px;
+  margin-top:5px;
+  background:rgba(255,255,255,.08);
+  overflow:hidden;
+}
+
+.sp-progress span{
+  display:block;
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#8f172b,#e03e52,#ff7182);
+  box-shadow:0 0 12px rgba(224,62,82,.75);
+}
+
+.sp-meta{
+  width:min(300px,60vw);
+  display:flex;
+  justify-content:space-between;
+  color:#55555d;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* Keyframes */
+@keyframes spSpin{to{transform:rotate(360deg)}}
+@keyframes spSpinReverse{to{transform:rotate(-360deg)}}
+@keyframes spOrbit{to{transform:rotate(378deg)}}
+@keyframes spOrbitReverse{to{transform:rotate(-391deg)}}
+
+@keyframes spGlow{
+  0%,100%{transform:scale(.84);opacity:.45}
+  50%{transform:scale(1.08);opacity:.85}
+}
+
+@keyframes spPulseRing{
+  0%,100%{transform:scale(.94);opacity:.45}
+  50%{transform:scale(1.04);opacity:1}
+}
+
+@keyframes spScan{
+  0%,100%{transform:translateY(-38px);opacity:0}
+  20%{opacity:1}
+  50%{transform:translateY(38px);opacity:1}
+  80%{opacity:.6}
+}
+
+@keyframes spLogoHalo{
+  0%,100%{transform:scale(.82);opacity:.35}
+  50%{transform:scale(1.12);opacity:.75}
+}
+
+@keyframes spLogoFloat{
+  0%,100%{transform:translateY(0) scale(.98)}
+  50%{transform:translateY(-5px) scale(1.03)}
+}
+
+@keyframes spParticle{
+  0%,100%{transform:translate(0,0) scale(.65);opacity:.1}
+  50%{transform:translate(0,-16px) scale(1.15);opacity:1}
+}
+
+@keyframes spNoise{
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(-2%,1%)}
+  50%{transform:translate(1%,-2%)}
+  75%{transform:translate(2%,1%)}
+}
+
+@media(max-width:640px){
+  .sp-scene{
+    min-height:500px;
+  }
+
+  .sp-portal{
+    width:195px;
+    height:195px;
+  }
+
+  .sp-logo-wrap{
+    width:96px;
+    height:96px;
+  }
+
+  .sp-logo{
+    width:88px;
+    max-width:88px;
+  }
+
+  .sp-orbit-1{
+    width:300px;
+    height:116px;
+  }
+
+  .sp-orbit-2{
+    width:380px;
+    height:145px;
+  }
+
+  .sp-orbit-3{
+    width:470px;
+    height:185px;
+  }
+
+  .sp-core-glow{
+    width:220px;
+    height:220px;
+  }
+
+  .sp-copy{
+    bottom:4%;
+  }
+
+  .sp-copy strong{
+    font-size:9px;
+    letter-spacing:.12em;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .sp-noise,
+  .sp-core-glow,
+  .sp-portal-ring,
+  .sp-portal::after,
+  .sp-scan,
+  .sp-logo-halo,
+  .sp-logo,
+  .sp-orbit,
+  .sp-particles span{
+    animation:none !important;
+  }
+}
+</style>
+
+
+<style id="stackly-preloader-lock">
+/* Keep the browser's vertical scrollbar visible while the
+   preloader is active so its edge aligns with the loaded page. */
+html{
+  scrollbar-gutter: stable;
+}
+
+html.preloader-active{
+  overflow-y:scroll !important;
+  overflow-x:hidden !important;
+  scrollbar-gutter: stable;
+}
+
+html.preloader-active body{
+  overflow:hidden !important;
+}
+</style>
+
+<style id="stackly-preloader-scrollbar-polish">
+.stackly-preloader{
+  overflow:hidden !important;
+  width:100%;
+  max-width:100vw;
+}
+</style>
+
+
+<style id="stackly-alien-hover-system">
+/* =========================================================
+   STACKLY — ALIEN LEVEL HOVER SYSTEM
+   Every interactive element gets a coordinated futuristic
+   red/black energy response without breaking layout.
+   ========================================================= */
+
+/* Global pointer / focus language */
+a, button, input, select, textarea{
+  -webkit-tap-highlight-color:transparent;
+}
+a, button{
+  cursor:pointer;
+}
+
+/* Shared futuristic energy surface */
+.interactive-lift,
+.motion-card,
+.se-process-step-link,
+.scf-nav-block a,
+.scf-contact__item,
+.scf-socials a,
+.scf-round-cta,
+.se-legacy__badge,
+.scf-news,
+.luxury-card{
+  isolation:isolate;
+}
+
+/* ---- NAVIGATION LINKS ---- */
+header nav a{
+  position:relative;
+  transition:
+    color .28s ease,
+    transform .3s cubic-bezier(.2,.8,.2,1),
+    text-shadow .3s ease;
+}
+
+header nav a::before{
+  content:"";
+  position:absolute;
+  left:-10px;
+  right:-10px;
+  bottom:-7px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#e03e52 30%,#ff7f8d 50%,#e03e52 70%,transparent);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 0 10px rgba(224,62,82,.65);
+}
+
+header nav a:hover{
+  color:#fff !important;
+  transform:translateY(-2px);
+  text-shadow:0 0 16px rgba(224,62,82,.38);
+}
+
+header nav a:hover::before{
+  transform:scaleX(1);
+}
+
+/* ---- LOGO ---- */
+header > div > a:first-child{
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    filter .4s ease;
+}
+
+header > div > a:first-child:hover{
+  transform:translateY(-2px) scale(1.035);
+  filter:
+    drop-shadow(0 0 8px rgba(224,62,82,.45))
+    drop-shadow(0 0 24px rgba(224,62,82,.18));
+}
+
+/* ---- HEADER LOGIN / CTA ---- */
+header a[href="login.html"],
+.mobile-menu__cta{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease,
+    background-color .3s ease,
+    color .3s ease !important;
+}
+
+header a[href="login.html"]::before,
+.mobile-menu__cta::before{
+  content:"";
+  position:absolute;
+  inset:-60%;
+  background:conic-gradient(
+    from 0deg,
+    transparent 0 28%,
+    rgba(255,255,255,.22) 34%,
+    transparent 40% 100%
+  );
+  animation:alienSweep 2.8s linear infinite;
+  opacity:0;
+  pointer-events:none;
+}
+
+header a[href="login.html"]::after,
+.mobile-menu__cta::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(224,62,82,0);
+  transition:box-shadow .3s ease;
+}
+
+header a[href="login.html"]:hover,
+.mobile-menu__cta:hover{
+  transform:translateY(-4px) scale(1.025);
+  box-shadow:
+    0 14px 34px rgba(224,62,82,.24),
+    0 0 24px rgba(224,62,82,.14) !important;
+}
+
+header a[href="login.html"]:hover::before,
+.mobile-menu__cta:hover::before{
+  opacity:1;
+}
+
+header a[href="login.html"]:hover::after,
+.mobile-menu__cta:hover::after{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);
+}
+
+/* ---- HAMBURGER ---- */
+#menuToggle{
+  position:fixed;
+  overflow:hidden;
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease,
+    border-color .3s ease,
+    background-color .3s ease;
+}
+
+#menuToggle::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:conic-gradient(
+    transparent,
+    rgba(255,255,255,.22),
+    transparent 35%
+  );
+  animation:alienSweep 2.6s linear infinite;
+  opacity:0;
+}
+
+#menuToggle:hover{
+  transform:translateY(-2px) rotate(-3deg) !important;
+  border-color:rgba(224,62,82,.8) !important;
+  box-shadow:
+    0 0 0 4px rgba(224,62,82,.07),
+    0 12px 28px rgba(224,62,82,.22);
+}
+
+#menuToggle:hover::before{
+  opacity:1;
+}
+
+#menuToggle:hover i{
+  transform:scale(1.08);
+}
+
+/* ---- HERO BUTTONS ---- */
+section.relative.min-h-screen a[href="#contact"],
+section.relative.min-h-screen a[href="#portfolio"]{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease,
+    border-color .3s ease,
+    background-color .3s ease !important;
+}
+
+section.relative.min-h-screen a[href="#contact"]::before,
+section.relative.min-h-screen a[href="#portfolio"]::before{
+  content:"";
+  position:absolute;
+  top:-120%;
+  bottom:-120%;
+  left:-45%;
+  width:28%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.3),
+    transparent
+  );
+  transform:rotate(18deg);
+  transition:left .7s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+
+section.relative.min-h-screen a[href="#contact"]:hover,
+section.relative.min-h-screen a[href="#portfolio"]:hover{
+  transform:translateY(-7px) scale(1.025) !important;
+}
+
+section.relative.min-h-screen a[href="#contact"]:hover{
+  box-shadow:
+    0 20px 50px rgba(224,62,82,.30),
+    0 0 28px rgba(224,62,82,.13) !important;
+}
+
+section.relative.min-h-screen a[href="#portfolio"]:hover{
+  border-color:rgba(224,62,82,.55);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.38),
+    0 0 24px rgba(224,62,82,.10);
+}
+
+section.relative.min-h-screen a:hover::before{
+  left:125%;
+}
+
+/* ---- TRUST CARDS ---- */
+section.relative.min-h-screen .grid > div.p-4{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    border-color .3s ease,
+    background-color .3s ease,
+    box-shadow .35s ease;
+}
+
+section.relative.min-h-screen .grid > div.p-4::before{
+  content:"";
+  position:absolute;
+  width:80px;
+  height:80px;
+  top:-35px;
+  right:-35px;
+  border-radius:50%;
+  background:rgba(224,62,82,.12);
+  filter:blur(18px);
+  transition:transform .5s ease, opacity .35s ease;
+  opacity:.45;
+}
+
+section.relative.min-h-screen .grid > div.p-4:hover{
+  transform:translateY(-6px);
+  border-color:rgba(224,62,82,.35) !important;
+  box-shadow:
+    0 16px 35px rgba(0,0,0,.25),
+    0 0 18px rgba(224,62,82,.08);
+}
+
+section.relative.min-h-screen .grid > div.p-4:hover::before{
+  transform:scale(2.1);
+  opacity:.8;
+}
+
+/* ---- ABOUT IMAGE LINKS ---- */
+#about .grid.grid-cols-2 > a{
+  position:relative;
+  overflow:hidden;
+  border-radius:1.5rem;
+  transition:
+    transform .55s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease,
+    filter .4s ease;
+}
+
+#about .grid.grid-cols-2 > a::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 30%,
+      rgba(224,62,82,.18) 50%,
+      transparent 70%
+    );
+  transform:translateX(-120%);
+  transition:transform .75s ease;
+  pointer-events:none;
+}
+
+#about .grid.grid-cols-2 > a:hover{
+  transform:translateY(-8px) scale(1.012);
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.35),
+    0 0 24px rgba(224,62,82,.11);
+  filter:saturate(1.08);
+}
+
+#about .grid.grid-cols-2 > a:hover::after{
+  transform:translateX(120%);
+}
+
+/* ---- SERVICE CARDS ---- */
+#services .luxury-card{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .55s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+#services .luxury-card::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:radial-gradient(
+    circle,
+    rgba(224,62,82,.12),
+    transparent 48%
+  );
+  opacity:0;
+  transform:scale(.65);
+  transition:opacity .45s ease, transform .55s ease;
+  pointer-events:none;
+}
+
+#services .luxury-card::after{
+  content:"";
+  position:absolute;
+  left:10%;
+  right:10%;
+  bottom:0;
+  height:2px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #e03e52 35%,
+    #ff7d8a 50%,
+    #e03e52 65%,
+    transparent
+  );
+  transform:scaleX(0);
+  box-shadow:0 0 15px rgba(224,62,82,.55);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+
+#services .luxury-card:hover{
+  transform:translateY(-12px) scale(1.012);
+  border-color:rgba(224,62,82,.42) !important;
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.38),
+    0 0 25px rgba(224,62,82,.10);
+}
+
+#services .luxury-card:hover::before{
+  opacity:1;
+  transform:scale(1);
+}
+
+#services .luxury-card:hover::after{
+  transform:scaleX(1);
+}
+
+/* ---- SERVICE IMAGE ENERGY ---- */
+.luxury-card .se-card-image{
+  transition:
+    transform .8s cubic-bezier(.2,.8,.2,1),
+    filter .55s ease,
+    box-shadow .4s ease;
+}
+
+.luxury-card:hover .se-card-image{
+  transform:scale(1.055);
+  filter:saturate(1.12) contrast(1.05);
+  box-shadow:0 18px 40px rgba(0,0,0,.3);
+}
+
+/* ---- PORTFOLIO ---- */
+#portfolio .group.relative.rounded-3xl{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .55s cubic-bezier(.2,.8,.2,1),
+    box-shadow .5s ease,
+    border-color .35s ease;
+}
+
+#portfolio .group.relative.rounded-3xl::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  border:1px solid rgba(224,62,82,0);
+  box-shadow:inset 0 0 0 rgba(224,62,82,0);
+  transition:all .4s ease;
+  pointer-events:none;
+  z-index:3;
+}
+
+#portfolio .group.relative.rounded-3xl:hover{
+  transform:translateY(-11px) scale(1.01);
+  box-shadow:
+    0 30px 75px rgba(0,0,0,.42),
+    0 0 28px rgba(224,62,82,.10);
+}
+
+#portfolio .group.relative.rounded-3xl:hover::after{
+  border-color:rgba(224,62,82,.30);
+  box-shadow:inset 0 0 35px rgba(224,62,82,.08);
+}
+
+/* ---- PROCESS / EDITORIAL LINKS ---- */
+.se-process-step-link,
+.se-moment,
+.se-cinematic-image-link,
+.se-curation-image-link{
+  transition:
+    transform .55s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .35s ease,
+    filter .45s ease;
+}
+
+.se-process-step-link:hover,
+.se-moment:hover{
+  transform:translateY(-12px) !important;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.38),
+    0 0 25px rgba(224,62,82,.08);
+  border-color:rgba(224,62,82,.28) !important;
+}
+
+.se-moment:hover .motion-image{
+  transform:scale(1.065);
+  filter:saturate(1.1) contrast(1.05);
+}
+
+/* ---- CINEMATIC IMAGE LINKS ---- */
+.se-cinematic-image-link:hover,
+.se-curation-image-link:hover{
+  filter:saturate(1.08);
+}
+
+.se-cinematic-image-link::after,
+.se-curation-image-link::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, transparent 42%, rgba(224,62,82,.10));
+  opacity:0;
+  transition:opacity .5s ease;
+  pointer-events:none;
+}
+
+.se-cinematic-image-link:hover::after,
+.se-curation-image-link:hover::after{
+  opacity:1;
+}
+
+/* ---- CURATION CHIP / BADGES ---- */
+.se-curation-chip,
+.se-legacy__badge{
+  transition:
+    transform .5s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .35s ease;
+}
+
+.se-curation-visual:hover .se-curation-chip{
+  transform:translateY(-10px) rotate(-2deg) scale(1.025);
+  border-color:rgba(224,62,82,.65) !important;
+  box-shadow:
+    0 26px 60px rgba(0,0,0,.38),
+    0 0 22px rgba(224,62,82,.11);
+}
+
+.se-legacy__badge:hover{
+  transform:translateY(-9px) rotate(4deg) scale(1.05);
+  border-color:rgba(224,62,82,.7) !important;
+  box-shadow:
+    0 26px 65px rgba(0,0,0,.4),
+    0 0 30px rgba(224,62,82,.14);
+}
+
+/* ---- CONTACT RAIL ---- */
+.scf-contact__item{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    color .3s ease,
+    border-color .3s ease,
+    box-shadow .35s ease;
+}
+
+.scf-contact__item::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(224,62,82,.09),
+    transparent 65%
+  );
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+  pointer-events:none;
+}
+
+.scf-contact__item:hover{
+  transform:translateX(5px);
+  color:#fff;
+  border-color:rgba(224,62,82,.4) !important;
+  box-shadow:
+    inset 3px 0 0 #e03e52,
+    0 0 18px rgba(224,62,82,.07);
+}
+
+.scf-contact__item:hover::before{
+  transform:translateX(0);
+}
+
+.scf-contact__item:hover i{
+  color:#e03e52;
+  transform:translateX(5px) rotate(-5deg);
+}
+
+/* ---- FOOTER SOCIALS ---- */
+.scf-socials a,
+.stackly-footer-v2__socials a{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    color .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .4s ease !important;
+}
+
+.scf-socials a::before,
+.stackly-footer-v2__socials a::before{
+  content:"";
+  position:absolute;
+  inset:-80%;
+  background:conic-gradient(
+    transparent 0 55%,
+    rgba(224,62,82,.24) 63%,
+    transparent 70% 100%
+  );
+  animation:alienSweep 2.4s linear infinite;
+  opacity:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.scf-socials a > i,
+.scf-socials a > svg,
+.stackly-footer-v2__socials a > i,
+.stackly-footer-v2__socials a > svg{
+  position:relative;
+  z-index:2;
+}
+
+.scf-socials a:hover,
+.stackly-footer-v2__socials a:hover{
+  transform:translateY(-8px) rotate(-5deg) scale(1.08) !important;
+  color:#fff !important;
+  background:rgba(224,62,82,.10);
+  border-color:rgba(224,62,82,.55);
+  box-shadow:
+    0 16px 34px rgba(0,0,0,.3),
+    0 0 22px rgba(224,62,82,.12);
+}
+
+.scf-socials a:hover::before,
+.stackly-footer-v2__socials a:hover::before{
+  opacity:1;
+}
+
+.scf-socials a:hover i,
+.scf-socials a:hover svg,
+.stackly-footer-v2__socials a:hover i,
+.stackly-footer-v2__socials a:hover svg{
+  color:#fff !important;
+  fill:#fff !important;
+  position:relative;
+  z-index:3;
+}
+
+/* ---- FOOTER NAV LINKS ---- */
+.scf-nav-block a{
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    color .3s ease,
+    text-shadow .3s ease;
+}
+
+.scf-nav-block a::before{
+  bottom:-3px;
+  height:1px;
+  background:linear-gradient(90deg,#e03e52,#ff7786,transparent);
+  box-shadow:0 0 10px rgba(224,62,82,.45);
+}
+
+.scf-nav-block a:hover{
+  transform:translateX(8px);
+  color:#fff !important;
+  text-shadow:0 0 14px rgba(224,62,82,.25);
+}
+
+.scf-nav-block a:hover b,
+.scf-nav-block a:hover i{
+  color:#e03e52 !important;
+}
+
+.scf-nav-block a:hover i{
+  transform:translateX(6px) rotate(-3deg);
+}
+
+/* ---- NEWSLETTER CARD ---- */
+.scf-news{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .5s cubic-bezier(.2,.8,.2,1),
+    box-shadow .5s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+.scf-news::before{
+  content:"";
+  position:absolute;
+  width:160px;
+  height:160px;
+  top:-75px;
+  right:-75px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(224,62,82,.22),transparent 70%);
+  filter:blur(10px);
+  transition:transform .65s ease, opacity .4s ease;
+  opacity:.55;
+  pointer-events:none;
+}
+
+.scf-news::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:-45%;
+  width:22%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.12),
+    transparent
+  );
+  transform:skewX(-18deg);
+  transition:left .85s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+
+.scf-news:hover{
+  transform:translateY(-10px);
+  border-color:rgba(224,62,82,.52) !important;
+  box-shadow:
+    0 30px 75px rgba(0,0,0,.34),
+    0 0 30px rgba(224,62,82,.11);
+}
+
+.scf-news:hover::before{
+  transform:scale(1.65);
+  opacity:.95;
+}
+
+.scf-news:hover::after{
+  left:130%;
+}
+
+.scf-news input:hover{
+  border-color:rgba(224,62,82,.45) !important;
+  background:rgba(224,62,82,.025);
+}
+
+.scf-news input:focus{
+  border-color:#e03e52 !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(224,62,82,.35),
+    0 0 20px rgba(224,62,82,.08) !important;
+}
+
+.scf-news button{
+  position:relative;
+  overflow:hidden;
+}
+
+.scf-news button::before{
+  content:"";
+  position:absolute;
+  inset:-80%;
+  background:conic-gradient(
+    transparent,
+    rgba(255,255,255,.3),
+    transparent 32%
+  );
+  animation:alienSweep 2.2s linear infinite;
+  opacity:0;
+}
+
+.scf-news button:hover{
+  background:#ff4f65 !important;
+  box-shadow:
+    0 0 22px rgba(224,62,82,.38),
+    inset 0 0 14px rgba(255,255,255,.08);
+  transform:scale(1.045);
+}
+
+.scf-news button:hover::before{
+  opacity:1;
+}
+
+/* ---- COPYRIGHT / LEGAL LINKS ---- */
+.scf-bottom.scf-copyright-visible a{
+  position:relative;
+  transition:
+    color .25s ease,
+    transform .3s ease,
+    text-shadow .3s ease;
+}
+
+.scf-bottom.scf-copyright-visible a:hover{
+  color:#fff !important;
+  transform:translateY(-2px);
+  text-shadow:0 0 12px rgba(224,62,82,.28);
+}
+
+/* ---- TOP BUTTON ---- */
+#topBtn{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease,
+    background-color .3s ease;
+}
+
+#topBtn:hover{
+  transform:translateY(-5px) scale(1.06) !important;
+  box-shadow:
+    0 15px 34px rgba(224,62,82,.24),
+    0 0 20px rgba(224,62,82,.12);
+}
+
+#topBtn:hover i{
+  transform:translateY(-2px);
+}
+
+/* ---- MOBILE MENU LINKS ---- */
+.mobile-menu__panel a{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .3s cubic-bezier(.2,.8,.2,1),
+    padding-left .3s ease,
+    background-color .3s ease,
+    color .3s ease,
+    box-shadow .3s ease;
+}
+
+.mobile-menu__panel a::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:10px;
+  bottom:10px;
+  width:2px;
+  background:linear-gradient(#e03e52,#ff7d8b);
+  transform:scaleY(0);
+  transition:transform .3s ease;
+  box-shadow:0 0 10px rgba(224,62,82,.45);
+}
+
+.mobile-menu__panel a:hover{
+  transform:translateX(4px);
+  background:rgba(224,62,82,.08);
+  color:#fff;
+  box-shadow:inset 0 0 18px rgba(224,62,82,.035);
+}
+
+.mobile-menu__panel a:hover::before{
+  transform:scaleY(1);
+}
+
+.mobile-menu__panel a:hover i{
+  color:#ff7182;
+  transform:translateX(6px) !important;
+}
+
+/* ---- HERO / SECTION HEADINGS ---- */
+section h2{
+  transition:
+    text-shadow .45s ease,
+    transform .4s cubic-bezier(.2,.8,.2,1);
+}
+
+section h2:hover{
+  text-shadow:
+    0 0 16px rgba(224,62,82,.13),
+    0 0 32px rgba(224,62,82,.06);
+}
+
+/* ---- UNIFIED KEYFRAME ---- */
+@keyframes alienSweep{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+
+/* Touch devices: don't fake desktop hover. */
+@media (hover:none){
+  header nav a:hover,
+  header > div > a:first-child:hover,
+  .interactive-lift:hover,
+  .motion-card:hover,
+  .scf-nav-block a:hover,
+  .scf-contact__item:hover,
+  .scf-socials a:hover,
+  .scf-news:hover,
+  #services .luxury-card:hover,
+  #portfolio .group.relative.rounded-3xl:hover{
+    transform:none !important;
+    filter:none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+
+
+<style id="stackly-active-nav-system">
+/* =========================================================
+   STACKLY — CURRENT PAGE / ACTIVE NAVIGATION
+   Home is the active route for this index.html page.
+   Works on desktop + mobile.
+   ========================================================= */
+
+/* Desktop active navigation */
+header nav .nav-link{
+  position:relative;
+  color:#a7a7ad;
+  transition:
+    color .3s ease,
+    transform .3s cubic-bezier(.2,.8,.2,1),
+    text-shadow .3s ease;
+}
+
+header nav .nav-link-active{
+  color:#fff !important;
+  text-shadow:0 0 16px rgba(224,62,82,.22);
+}
+
+header nav .nav-link-active::before{
+  content:"";
+  position:absolute;
+  left:-10px;
+  right:-10px;
+  bottom:-7px;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #e03e52 22%,
+    #ff7182 50%,
+    #e03e52 78%,
+    transparent
+  );
+  box-shadow:
+    0 0 8px rgba(224,62,82,.72),
+    0 0 18px rgba(224,62,82,.28);
+  transform:scaleX(1);
+  opacity:1;
+}
+
+header nav .nav-link-active::after{
+  content:"";
+  position:absolute;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  left:50%;
+  bottom:-10px;
+  transform:translateX(-50%);
+  background:#ff7182;
+  box-shadow:0 0 10px rgba(224,62,82,.9);
+}
+
+/* Keep the active item visibly active even when hovered. */
+header nav .nav-link-active:hover{
+  color:#fff !important;
+  transform:translateY(-2px);
+}
+
+/* Mobile active navigation */
+.mobile-menu__panel .mobile-nav-link{
+  position:relative;
+  overflow:hidden;
+  padding-left:16px !important;
+  transition:
+    color .3s ease,
+    background-color .3s ease,
+    transform .3s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease,
+    padding-left .3s ease;
+}
+
+.mobile-menu__panel .mobile-nav-link.nav-link-active{
+  color:#fff !important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(224,62,82,.14),
+      rgba(224,62,82,.055),
+      rgba(224,62,82,.01)
+    ) !important;
+  box-shadow:
+    inset 3px 0 0 #e03e52,
+    inset 0 0 22px rgba(224,62,82,.035);
+}
+
+.mobile-menu__panel .mobile-nav-link.nav-link-active::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:9px;
+  bottom:9px;
+  width:3px;
+  border-radius:999px;
+  background:linear-gradient(#e03e52,#ff7182);
+  box-shadow:
+    0 0 9px rgba(224,62,82,.8),
+    0 0 18px rgba(224,62,82,.25);
+  transform:scaleY(1);
+}
+
+.mobile-menu__panel .mobile-nav-link.nav-link-active i{
+  color:#ff7182 !important;
+  transform:translateX(4px);
+}
+
+.mobile-menu__panel .mobile-nav-link.nav-link-active:hover{
+  transform:translateX(3px);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(224,62,82,.18),
+      rgba(224,62,82,.07),
+      rgba(224,62,82,.015)
+    ) !important;
+}
+
+@media (max-width:600px){
+  .mobile-menu__panel .mobile-nav-link.nav-link-active{
+    box-shadow:
+      inset 3px 0 0 #e03e52,
+      inset 0 0 20px rgba(224,62,82,.035);
+  }
+}
+
+/* --- Fix 1: Hamburger Button Positioning & Stability --- */
+@media (max-width: 1024px) {
+  header > div {
+    position: relative !important;
+  }
+  #menuToggle {
+    position: absolute !important;
+    right: 24px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important.
+    margin: 0 !important.
+    z-index: 100 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #menuToggle {
+    right: 16px !important;
+  }
+}
+
+/* --- Fix 2: Background Scroll Lock when Menu is Open --- */
+html.menu-open,
+body.menu-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  overscroll-behavior: none !important;
+}
+
+</style>
+
+
+<style id="stackly-mobile-menu-final-fix">
+/*
+  FINAL MOBILE MENU FIX
+  1. Hamburger is anchored to the fixed header, not the viewport.
+  2. Opening the menu freezes the page at the exact current scroll position.
+  3. Only the menu panel can scroll.
+  4. Mobile browser viewport changes cannot move the hamburger around.
+*/
+
+@media (max-width:1024px){
+  header{
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    z-index:999 !important;
+  }
+
+  header > div{
+    position:relative !important;
+  }
+
+  #menuToggle{
+    position:absolute !important;
+    top:50% !important;
+    right:24px !important;
+    width:44px !important;
+    height:44px !important;
+    margin:0 !important;
+    transform:translateY(-50%) !important;
+    z-index:1001 !important;
+    flex-shrink:0 !important;
+  }
+
+  #menuToggle:hover{
+    transform:translateY(-50%) rotate(-3deg) !important;
+  }
+
+  .mobile-menu{
+    position:fixed !important;
+    top:74px !important;
+    right:0 !important;
+    bottom:0 !important;
+    left:0 !important;
+    width:100% !important;
+    height:calc(100dvh - 74px) !important;
+    max-height:calc(100dvh - 74px) !important;
+    overflow:hidden !important;
+    overscroll-behavior:none !important;
+    touch-action:none !important;
+    z-index:998 !important;
+  }
+
+  .mobile-menu__panel{
+    max-height:calc(100dvh - 96px) !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    overscroll-behavior:contain !important;
+    -webkit-overflow-scrolling:touch !important;
+    touch-action:pan-y !important;
+  }
+
+  html.menu-open{
+    overflow:hidden !important;
+    overscroll-behavior:none !important;
+    touch-action:none !important;
+  }
+
+  body.menu-open{
+    position:fixed !important;
+    overflow:hidden !important;
+    overscroll-behavior:none !important;
+    touch-action:none !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+}
+
+@media (max-width:600px){
+  #menuToggle{
+    right:14px !important;
+    width:44px !important;
+    height:44px !important;
+  }
+
+  .mobile-menu{
+    top:70px !important;
+    height:calc(100dvh - 70px) !important;
+    max-height:calc(100dvh - 70px) !important;
+  }
+
+  .mobile-menu__panel{
+    max-height:calc(100dvh - 88px) !important;
+  }
+}
+
+@media (max-width:420px){
+  #menuToggle{
+    right:12px !important;
+    width:42px !important;
+    height:42px !important;
+  }
+
+  .mobile-menu__panel{
+    max-height:calc(100dvh - 84px) !important;
+  }
+}
+
+/* Do not let touch-hover transforms move the hamburger. */
+@media (hover:none){
+  #menuToggle:hover{
+    transform:translateY(-50%) !important;
+  }
+}
+</style>
+
+
+<style id="stackly-mobile-scroll-lock-absolute-final">
+@media (max-width:1024px){
+  html.menu-open,
+  html.menu-open body{
+    overscroll-behavior:none !important;
+  }
+
+  body.menu-open{
+    overflow:hidden !important;
+    height:100% !important;
+  }
+
+  .mobile-menu.is-open{
+    touch-action:none !important;
+    overscroll-behavior:none !important;
+  }
+
+  .mobile-menu.is-open .mobile-menu__panel{
+    overscroll-behavior:contain !important;
+  }
+}
+
+/* Keep hamburger mathematically centered in the fixed header. */
+@media (max-width:1024px){
+  #menuToggle{
+    position:absolute !important;
+    top:50% !important;
+    right:24px !important;
+    transform:translateY(-50%) !important;
+  }
+  #menuToggle:hover,
+  #menuToggle:focus-visible{
+    transform:translateY(-50%) !important;
+  }
+}
+@media (max-width:600px){
+  #menuToggle{right:14px !important;}
+}
+@media (max-width:420px){
+  #menuToggle{right:12px !important;}
+}
+</style>
+
+\n<style id="stackly-professional-mobile-scroll-lock">\n@media (max-width:1024px){\n  html.menu-open{\n    overflow:hidden !important;\n    height:100% !important;\n    overscroll-behavior:none !important;\n    overscroll-behavior-y:none !important;\n    touch-action:none !important;\n    scrollbar-gutter:stable;\n  }\n  body.menu-open{\n    position:fixed !important;\n    inset:0 !important;\n    width:100% !important;\n    height:100% !important;\n    min-height:100% !important;\n    max-height:100% !important;\n    overflow:hidden !important;\n    overscroll-behavior:none !important;\n    overscroll-behavior-y:none !important;\n    touch-action:none !important;\n  }\n  body.menu-open > *:not(header):not(#mobileMenu){\n    pointer-events:none !important;\n  }\n  #mobileMenu{\n    position:fixed !important;\n    top:0 !important;\n    right:0 !important;\n    bottom:0 !important;\n    left:0 !important;\n    width:100% !important;\n    height:100dvh !important;\n    max-height:100dvh !important;\n    overflow:hidden !important;\n    overscroll-behavior:none !important;\n    overscroll-behavior-y:none !important;\n    touch-action:none !important;\n    -webkit-overflow-scrolling:auto !important;\n    z-index:998 !important;\n  }\n  #mobileMenu .mobile-menu__panel{\n    overscroll-behavior:contain !important;\n    overscroll-behavior-y:contain !important;\n    touch-action:pan-y !important;\n    -webkit-overflow-scrolling:touch !important;\n    overflow-y:auto !important;\n    overflow-x:hidden !important;\n  }\n  #menuToggle{\n    z-index:1001 !important;\n  }\n}\n@media (hover:none){\n  #menuToggle:hover, #menuToggle:focus-visible{\n    transform:translateY(-50%) !important;\n  }\n}\n</style>\n
+<style id="stackly-mobile-hamburger-no-red-hover">
+/* Mobile only — keep the hamburger completely neutral.
+   No red hover, glow, border, rotation or icon scaling. */
+@media (max-width:1024px){
+  #menuToggle,
+  #menuToggle:hover,
+  #menuToggle:active,
+  #menuToggle:focus,
+  #menuToggle:focus-visible{
+    background-color:rgba(255,255,255,.05) !important;
+    border-color:rgba(255,255,255,.10) !important;
+    box-shadow:none !important;
+    filter:none !important;
+    transform:translateY(-50%) !important;
+  }
+
+  #menuToggle::before,
+  #menuToggle:hover::before{
+    opacity:0 !important;
+    animation:none !important;
+  }
+
+  #menuToggle i,
+  #menuToggle:hover i,
+  #menuToggle:active i{
+    transform:none !important;
+    color:inherit !important;
+  }
+}
+
+@media (hover:none) and (max-width:1024px){
+  #menuToggle:hover{
+    background-color:rgba(255,255,255,.05) !important;
+    border-color:rgba(255,255,255,.10) !important;
+    box-shadow:none !important;
+    transform:translateY(-50%) !important;
+  }
+}
+</style>
+</head>
+<body class="bg-[#0b0b0b] text-gray-100 font-sans selection:bg-brand-500 selection:text-white">
+
+<!-- =========================================================
+     STACKLY ALIEN-LUXURY PRELOADER
+     Red/black cinematic portal + logo + progress pulse
+     ========================================================= -->
+<div id="stacklyPreloader" class="stackly-preloader" aria-label="Loading Stackly">
+  <div class="sp-noise"></div>
+  <div class="sp-vignette"></div>
+
+  <div class="sp-scene">
+    <div class="sp-orbit sp-orbit-1"></div>
+    <div class="sp-orbit sp-orbit-2"></div>
+    <div class="sp-orbit sp-orbit-3"></div>
+
+    <div class="sp-core-glow"></div>
+
+    <div class="sp-portal">
+      <div class="sp-portal-ring sp-ring-a"></div>
+      <div class="sp-portal-ring sp-ring-b"></div>
+      <div class="sp-portal-ring sp-ring-c"></div>
+      <div class="sp-portal-inner"></div>
+      <div class="sp-scan"></div>
+
+      <div class="sp-logo-wrap">
+        <div class="sp-logo-halo"></div>
+        <img
+          src="assets/images/logo/stackly_logo.webp"
+          alt="Stackly"
+          class="sp-logo"
+        />
+      </div>
+    </div>
+
+    <div class="sp-particles" aria-hidden="true">
+      <span style="--x:8%;--y:22%;--d:2.1s;--delay:.15s"></span>
+      <span style="--x:18%;--y:68%;--d:2.6s;--delay:.65s"></span>
+      <span style="--x:27%;--y:34%;--d:2.2s;--delay:1.1s"></span>
+      <span style="--x:38%;--y:78%;--d:3s;--delay:.4s"></span>
+      <span style="--x:49%;--y:16%;--d:2.4s;--delay:.8s"></span>
+      <span style="--x:59%;--y:74%;--d:2.8s;--delay:.2s"></span>
+      <span style="--x:70%;--y:29%;--d:2.3s;--delay:1.25s"></span>
+      <span style="--x:81%;--y:64%;--d:2.9s;--delay:.55s"></span>
+      <span style="--x:91%;--y:39%;--d:2.4s;--delay:1s"></span>
+      <span style="--x:74%;--y:86%;--d:2.5s;--delay:.35s"></span>
+      <span style="--x:12%;--y:48%;--d:2.7s;--delay:1.4s"></span>
+      <span style="--x:87%;--y:18%;--d:2.2s;--delay:.95s"></span>
+    </div>
+
+    <div class="sp-copy">
+      <span class="sp-kicker">STACKLY</span>
+      <strong id="spStatus">INITIALIZING EXPERIENCE</strong>
+      <div class="sp-progress">
+        <span id="spProgress"></span>
+      </div>
+      <div class="sp-meta">
+        <span id="spPercent">00%</span>
+        <span>PRIVATE • CINEMATIC • PRECISION</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- HEADER / NAVIGATION -->
+<header class="fixed top-0 left-0 w-full glass-nav border-b border-white/10 z-50 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<!-- LOGO -->
+<a class="flex items-center group interactive-lift" href="index.html">
+<img alt="Stackly Logo" class="h-12 md:h-14 w-auto object-contain transform group-hover:scale-105 transition duration-300" src="assets/images/logo/stackly_logo.webp"/>
+</a>
+<nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-gray-300" aria-label="Primary navigation">
+<a class="nav-link nav-link-active hover:text-white transition interactive-lift" href="index.html" aria-current="page">Home</a>
+<a class="nav-link hover:text-white transition interactive-lift" href="about.html">About</a>
+<a class="nav-link hover:text-white transition interactive-lift" href="services.html">Services</a>
+<a class="nav-link hover:text-white transition interactive-lift" href="packages.html">Packages</a>
+<a class="nav-link hover:text-white transition interactive-lift" href="contact.html">Contact</a>
+</nav>
+
+<button id="menuToggle" class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white hover:bg-brand-500 hover:border-brand-500 transition-all duration-300" aria-label="Open navigation" aria-expanded="false">
+    <i class="fas fa-bars text-sm"></i>
+</button>
+
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-block bg-white text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-500 hover:text-white transition duration-300 shadow-xl transform hover:-translate-y-0.5 interactive-lift" href="login.html">
+                    Login / Register
+                </a>
+</div>
+</div>
+</header>
+
+<div id="mobileMenu" class="mobile-menu md:hidden" aria-hidden="true">
+    <div class="mobile-menu__panel">
+        <a class="mobile-nav-link nav-link-active" href="index.html" aria-current="page">Home <i class="fas fa-arrow-right"></i></a>
+        <a class="mobile-nav-link" href="about.html">About <i class="fas fa-arrow-right"></i></a>
+        <a class="mobile-nav-link" href="services.html">Services <i class="fas fa-arrow-right"></i></a>
+        <a class="mobile-nav-link" href="packages.html">Packages <i class="fas fa-arrow-right"></i></a>
+        <a class="mobile-nav-link" href="contact.html">Contact <i class="fas fa-arrow-right"></i></a>
+        <a class="mobile-menu__cta" href="login.html">Login / Register <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- HERO SECTION WITH VIDEO BACKGROUND -->
+<section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden bg-[#0b0b0b] overflow-x-hidden">
+<!-- Background Video Loop -->
+<video autoplay="" class="absolute inset-0 w-full h-full hero-video opacity-35 z-0 pointer-events-none" loop="" muted="" playsinline="">
+<source src="assets/videos/hero-event.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
+<!-- Modern Background Gradient Glows -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/20 rounded-full blur-[140px] pointer-events-none z-1"></div>
+<div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none z-1"></div>
+<div class="max-w-5xl mx-auto text-center relative z-10">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 shadow-inner" data-aos="fade" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+<span class="text-xs uppercase tracking-widest text-gray-300 font-semibold">Redefining Luxury Celebrations</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 leading-[1.1]" data-aos="fade-up" data-aos-delay="180" data-aos-duration="1000" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+                We Create <br/>
+<span class="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-rose-400 to-amber-200">
+                    Breathtaking
+                </span> Moments
+            </h1>
+<p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed" data-aos="fade-down" data-aos-delay="320" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+                Elite event curation for high-profile weddings, immersive brand galas, and bespoke celebrations crafted with unmatched precision.
+            </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up-right" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<a class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-full shadow-2xl shadow-brand-500/30 transition transform hover:-translate-y-1 interactive-lift" data-aos="fade-up" data-aos-delay="420" data-aos-duration="850" data-aos-once="false" href="404.html">
+                    Start Planning Your Event
+                </a>
+<a class="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-semibold px-8 py-4 rounded-full backdrop-blur-md transition transform hover:-translate-y-1 interactive-lift" data-aos="fade-up" data-aos-delay="510" data-aos-duration="850" data-aos-once="false" href="404.html">
+                    View Masterpieces
+                </a>
+</div>
+<!-- Trust Badges -->
+<div class="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left" data-aos="fade-up-left" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="650" data-aos-duration="750" data-aos-once="false">
+<div class="text-3xl font-extrabold text-white mb-1">300+</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Curated Experiences</div>
+</div>
+<div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="740" data-aos-duration="750" data-aos-once="false">
+<div class="text-3xl font-extrabold text-white mb-1">100%</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Tailored Designs</div>
+</div>
+<div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="830" data-aos-duration="750" data-aos-once="false">
+<div class="text-3xl font-extrabold text-white mb-1">12+</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Global Awards</div>
+</div>
+<div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="920" data-aos-duration="750" data-aos-once="false">
+<div class="text-3xl font-extrabold text-white mb-1">5.0</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Client Rating</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT SECTION -->
+<section class="py-20 max-w-7xl mx-auto px-6 border-t border-white/10 relative" data-aos="fade-up" data-aos-delay="30" data-aos-duration="900" data-aos-once="false" id="about">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div data-aos="fade-down-right" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<span class="text-brand-500 text-xs font-bold tracking-widest uppercase mb-3 block">About Stackly</span>
+<h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-6" data-aos="fade-up" data-aos-delay="120" data-aos-duration="850" data-aos-once="false">Crafting Unforgettable Legacies</h2>
+<p class="text-gray-400 text-base leading-relaxed mb-6 font-light">
+                    Stackly is a premier luxury event planning agency dedicated to transforming grand visions into reality. We believe every celebration is an extraordinary story waiting to be told through immaculate design, curated aesthetics, and flawless execution.
+                </p>
+<div class="grid grid-cols-2 gap-6 text-white font-semibold text-sm">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+<i class="fa-solid fa-circle-check text-brand-500"></i> Bespoke Themes
+                    </div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+<i class="fa-solid fa-circle-check text-brand-500"></i> Global Vendors
+                    </div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4" data-aos="fade-down-left" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<a aria_label="Event setup" class="interactive-lift" href="404.html"><img alt="Event setup" class="rounded-3xl object-cover h-64 w-full shadow-2xl border border-white/10 transform hover:scale-105 transition duration-500 motion-image" data-aos="zoom-in" data-aos-delay="220" data-aos-duration="900" data-aos-once="false" src="assets/images/digital41.webp"/></a>
+<a aria_label="Luxury decor" class="interactive-lift" href="404.html"><img alt="Luxury decor" class="rounded-3xl object-cover h-64 w-full mt-8 shadow-2xl border border-white/10 transform hover:scale-105 transition duration-500 motion-image" data-aos="zoom-in" data-aos-delay="310" data-aos-duration="900" data-aos-once="false" src="assets/images/digital42.webp"/></a>
+</div>
+</div>
+</section>
+<!-- SERVICES SECTION -->
+<section class="py-20 max-w-7xl mx-auto px-6 border-t border-white/10" data-aos="fade-up" data-aos-delay="60" data-aos-duration="900" data-aos-once="false" id="services">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="flip-up" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<div>
+<span class="text-brand-500 text-xs font-bold tracking-widest uppercase mb-3 block">Our Expertise</span>
+<h2 class="text-3xl md:text-5xl font-extrabold tracking-tight" data-aos="fade-up" data-aos-delay="120" data-aos-duration="850" data-aos-once="false">Services Tailored <br/>For Perfection</h2>
+</div>
+<p class="text-gray-400 max-w-md mt-4 md:mt-0 font-light">
+                Every detail is meticulously planned, designed, and executed to reflect your distinct taste and standard.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="luxury-card border border-white/5 hover:border-brand-500/50 p-8 rounded-3xl transition duration-500 group relative overflow-hidden shadow-xl motion-card" data-aos="flip-down" data-aos-delay="180" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false"><img alt="Luxury wedding event styling" class="se-card-image" data-aos="zoom-in" data-aos-duration="850" data-aos-offset="80" src="assets/images/FJ2_6_11zon.webp"/>
+<div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl group-hover:bg-brand-500/20 transition"></div>
+<div class="text-4xl mb-6">🥂</div>
+<h3 class="text-xl font-bold mb-3 text-white" data-aos="fade-up" data-aos-delay="120" data-aos-duration="850" data-aos-once="false">Luxury Weddings</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">Complete wedding creation from destination scouting and aesthetic staging to concierge guest hospitality.</p>
+<a class="text-brand-500 text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition interactive-lift" href="404.html">Inquire Now →</a>
+</div>
+<div class="luxury-card border border-white/5 hover:border-brand-500/50 p-8 rounded-3xl transition duration-500 group relative overflow-hidden shadow-xl motion-card" data-aos="flip-left" data-aos-delay="270" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false"><img alt="Corporate summit event experience" class="se-card-image" data-aos="zoom-in" data-aos-duration="850" data-aos-offset="80" src="assets/images/digital15.webp"/>
+<div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition"></div>
+<div class="text-4xl mb-6">✨</div>
+<h3 class="text-xl font-bold mb-3 text-white">Corporate Summits</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">High-impact brand activations, annual galas, executive retreats, and product launch showcases.</p>
+<a class="text-brand-500 text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition interactive-lift" href="404.html">Inquire Now →</a>
+</div>
+<div class="luxury-card border border-white/5 hover:border-brand-500/50 p-8 rounded-3xl transition duration-500 group relative overflow-hidden shadow-xl motion-card" data-aos="flip-right" data-aos-delay="360" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false"><img alt="Private celebration event design" class="se-card-image" data-aos="zoom-in" data-aos-duration="850" data-aos-offset="80" src="assets/images/digital19.webp"/>
+<div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition"></div>
+<div class="text-4xl mb-6">🍾</div>
+<h3 class="text-xl font-bold mb-3 text-white">Private Celebrations</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">Exclusive milestone birthdays, VIP anniversaries, and high-society private soirées with custom themes.</p>
+<a class="text-brand-500 text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition interactive-lift" href="404.html">Inquire Now →</a>
+</div>
+</div>
+</section>
+<!-- PORTFOLIO PREVIEW -->
+<section class="py-20 max-w-7xl mx-auto px-6 border-t border-white/10" data-aos="fade-up" data-aos-delay="90" data-aos-duration="900" data-aos-once="false" id="portfolio">
+<div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-left" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<span class="text-brand-500 text-xs font-bold tracking-widest uppercase mb-3 block">Portfolio</span>
+<h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4" data-aos="fade-up" data-aos-delay="120" data-aos-duration="850" data-aos-once="false">Masterpieces in Motion</h2>
+<p class="text-gray-400 font-light">A glimpse into recent luxury spaces curated by our studio.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<a aria_label="Inquire about The Royal Palace Reception, Udaipur" class="group relative rounded-3xl overflow-hidden h-[420px] bg-gray-900 border border-white/10 shadow-2xl motion-card interactive-lift" data-aos="slide-up" data-aos-delay="180" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<img alt="Wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-80 motion-image" data-aos="zoom-in" data-aos-delay="220" data-aos-duration="900" data-aos-once="false" src="assets/images/d6.webp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-8">
+<span class="text-xs uppercase tracking-widest text-brand-400 font-semibold mb-1">Destination Wedding</span>
+<h3 class="text-2xl font-bold text-white" data-aos="fade-up" data-aos-delay="120" data-aos-duration="850" data-aos-once="false">The Hill Station Reception, Kashmir</h3>
+</div>
+</a>
+<a aria_label="Inquire about Tech Innovators Annual Summit, Chennai" class="group relative rounded-3xl overflow-hidden h-[420px] bg-gray-900 border border-white/10 shadow-2xl motion-card interactive-lift" data-aos="fade-up" data-aos-delay="270" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="true" href="404.html">
+<img alt="Corporate" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-80 motion-image" data-aos="zoom-in" data-aos-delay="310" data-aos-duration="900" data-aos-once="false" src="assets/images/d7.webp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-8">
+<span class="text-xs uppercase tracking-widest text-brand-400 font-semibold mb-1">Brand Gala</span>
+<h3 class="text-2xl font-bold text-white">Tech Innovators Annual Summit, Mumbai</h3>
+</div>
+</a>
+</div>
+</section>
+<!-- PACKAGES SECTION -->
+<section class="py-20 max-w-7xl mx-auto px-6 border-t border-white/10" data-aos="fade-up" data-aos-delay="120" data-aos-duration="900" data-aos-once="false" id="packages">
+<div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<span class="text-brand-500 text-xs font-bold tracking-widest uppercase mb-3 block">Investment</span>
+<h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4" data-aos="fade-up" data-aos-delay="120" data-aos-duration="850" data-aos-once="false">Curated Service Tiers</h2>
+<p class="text-gray-400 font-light">Flexible planning tiers tailored to your scale and scope.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="luxury-card border border-white/5 p-8 rounded-3xl flex flex-col justify-between shadow-xl motion-card" data-aos="slide-left" data-aos-delay="180" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false"><img alt="Essential event styling" class="se-card-image" data-aos="zoom-in" data-aos-duration="850" data-aos-offset="80" src="assets/images/d8.webp"/>
+<div>
+<h3 class="text-lg font-bold text-white mb-2" data-aos="fade-up" data-aos-delay="120" data-aos-duration="850" data-aos-once="false">Essential Styling</h3>
+<p class="text-xs text-gray-400 mb-6 font-light">Ideal for intimate gatherings &amp; private parties.</p>
+<div class="text-3xl font-extrabold text-white mb-6">Custom Quote</div>
+<ul class="space-y-3 text-sm text-gray-300 mb-8 font-light">
+<li class="flex items-center gap-2">✓ Theme &amp; Decor Design</li>
+<li class="flex items-center gap-2">✓ Vendor Coordination</li>
+<li class="flex items-center gap-2">✓ Day-of Execution Supervision</li>
+</ul>
+</div>
+<a class="w-full text-center bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-xl transition interactive-lift" href="404.html">Choose Essential</a>
+</div>
+<div class="bg-gradient-to-b from-[#220d11] to-[#141414] border border-brand-500/50 p-8 rounded-3xl flex flex-col justify-between relative shadow-2xl transform md:-translate-y-4" data-aos="slide-right" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false"><img alt="Signature full-service event planning" class="se-card-image" data-aos="zoom-in" data-aos-duration="850" data-aos-offset="80" src="assets/images/d9.webp"/>
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-lg">
+                    Most Popular
+                </div>
+<div>
+<h3 class="text-lg font-bold text-white mb-2">Signature Full-Service</h3>
+<p class="text-xs text-gray-400 mb-6 font-light">Comprehensive end-to-end planning.</p>
+<div class="text-3xl font-extrabold text-white mb-6">All-Inclusive</div>
+<ul class="space-y-3 text-sm text-gray-300 mb-8 font-light">
+<li class="flex items-center gap-2">✓ Complete Concept Creation</li>
+<li class="flex items-center gap-2">✓ Budget &amp; Contract Management</li>
+<li class="flex items-center gap-2">✓ Guest Concierge &amp; Logistics</li>
+<li class="flex items-center gap-2">✓ Dedicated Lead Planner Team</li>
+</ul>
+</div>
+<a class="w-full text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-brand-500/30 interactive-lift" href="404.html">Choose Signature</a>
+</div>
+<div class="luxury-card border border-white/5 p-8 rounded-3xl flex flex-col justify-between shadow-xl motion-card" data-aos="zoom-in" data-aos-delay="270" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false"><img alt="Bespoke destination event planning" class="se-card-image" data-aos="zoom-in" data-aos-duration="850" data-aos-offset="80" src="assets/images/d10.webp"/>
+<div>
+<h3 class="text-lg font-bold text-white mb-2">Bespoke Destination</h3>
+<p class="text-xs text-gray-400 mb-6 font-light">For grand luxury destination events.</p>
+<div class="text-3xl font-extrabold text-white mb-6">Exclusive</div>
+<ul class="space-y-3 text-sm text-gray-300 mb-8 font-light">
+<li class="flex items-center gap-2">✓ Multi-Day International/Local Scale</li>
+<li class="flex items-center gap-2">✓ Celebrity &amp; Artist Management</li>
+<li class="flex items-center gap-2">✓ 24/7 VIP Butler &amp; Security</li>
+</ul>
+</div>
+<a class="w-full text-center bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-xl transition interactive-lift" href="404.html">Inquire Bespoke</a>
+</div>
+</div>
+</section>
+<!-- PREMIUM LUXURY FOOTER -->
+<!-- =========================================================
+     STACKLY VISUAL ELEVATION SECTIONS
+     Added before the existing footer. No existing page content
+     is edited or deleted.
+     ========================================================= -->
+<section class="stackly-elevate stackly-signature-moments" data-aos="fade-up" data-aos-delay="180" data-aos-duration="900" data-aos-once="false">
+<div class="se-wrap">
+<div class="se-heading" data-aos="zoom-in-down" data-aos-delay="120" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<div>
+<span class="se-kicker">THE STACKLY SIGNATURE</span>
+<h2>Designed around<br/><i>your moment.</i></h2>
+</div>
+<p>From intimate celebrations to grand-scale productions, every detail is shaped to feel considered, cinematic, and unmistakably yours.</p>
+</div>
+<div class="se-moments-grid">
+<a aria_label="01 / GRAND CELEBRATIONS Atmosphere with intention." class="se-moment se-moment--large motion-card interactive-lift" data-aos="zoom-in-left" data-aos-delay="220" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<img alt="Elegant luxury event celebration" class="motion-image" loading="lazy" src="assets/images/d11.webp"/>
+<div class="se-moment__overlay"></div>
+<div class="se-moment__caption">
+<span>01 / GRAND CELEBRATIONS</span>
+<h3>Atmosphere<br/>with intention.</h3>
+</div>
+</a>
+<a aria_label="02 / WEDDINGS Details that linger." class="se-moment motion-card interactive-lift" data-aos="zoom-in-right" data-aos-delay="340" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<img alt="Luxury wedding table setting" class="motion-image" loading="lazy" src="assets/images/d12.webp"/>
+<div class="se-moment__overlay"></div>
+<div class="se-moment__caption">
+<span>02 / WEDDINGS</span>
+<h3>Details<br/>that linger.</h3>
+</div>
+</a>
+<a aria_label="03 / BRAND EVENTS Energy that connects." class="se-moment motion-card interactive-lift" data-aos="zoom-out" data-aos-delay="460" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<img alt="Premium corporate event" class="motion-image" loading="lazy" src="assets/images/d13.webp"/>
+<div class="se-moment__overlay"></div>
+<div class="se-moment__caption">
+<span>03 / BRAND EVENTS</span>
+<h3>Energy<br/>that connects.</h3>
+</div>
+</a>
+</div>
+</div>
+</section>
+<style>
+/* =========================================================
+   VISUAL ELEVATION — luxury event editorial layer
+   Existing content remains untouched.
+   Palette intentionally follows the existing red/dark theme.
+   ========================================================= */
+.stackly-elevate{
+  --se-red:#e03e52;
+  --se-red-dark:#c92e42;
+  --se-black:#070707;
+  --se-white:#f7f7f5;
+  --se-muted:#85858b;
+  --se-line:rgba(255,255,255,.10);
+  position:relative;
+  overflow:hidden;
+  background:var(--se-black);
+  color:var(--se-white);
+}
+.se-wrap{
+  width:min(1400px,calc(100% - 56px));
+  margin:0 auto;
+}
+.se-kicker{
+  display:block;
+  color:var(--se-red);
+  font-size:9px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  font-weight:800;
+}
+.se-heading{
+  padding:110px 0 52px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:70px;
+  align-items:end;
+}
+.se-heading h2{
+  margin:15px 0 0;
+  font-size:clamp(3rem,6vw,6.3rem);
+  line-height:.88;
+  letter-spacing:-.065em;
+  font-weight:800;
+}
+.se-heading h2 i,
+.se-curation-copy h2 i{
+  color:var(--se-red);
+  font-family:"Playfair Display",serif;
+  font-weight:600;
+}
+.se-heading p{
+  max-width:470px;
+  margin:0 0 4px;
+  color:#77777f;
+  font-size:12px;
+  line-height:1.95;
+  font-weight:300;
+}
+
+.se-moments-grid{
+  display:grid;
+  grid-template-columns:1.35fr .825fr .825fr;
+  gap:12px;
+  padding-bottom:110px;
+}
+.se-moment{
+  position:relative;
+  min-height:480px;
+  overflow:hidden;
+  background:#101010;
+}
+.se-moment--large{min-height:620px}
+.se-moment img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.78) contrast(1.04);
+  transform:scale(1.01);
+  transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s ease;
+}
+.se-moment__overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.82) 100%);
+}
+.se-moment::after{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(255,255,255,.14);
+  pointer-events:none;
+  transition:border-color .4s ease;
+}
+.se-moment:hover img{
+  transform:scale(1.07);
+  filter:saturate(.95) contrast(1.06);
+}
+.se-moment:hover::after{border-color:rgba(224,62,82,.55)}
+.se-moment__caption{
+  position:absolute;
+  left:32px;
+  right:28px;
+  bottom:30px;
+  z-index:2;
+}
+.se-moment__caption span{
+  color:rgba(255,255,255,.62);
+  font-size:8px;
+  letter-spacing:.2em;
+  font-weight:800;
+}
+.se-moment__caption h3{
+  margin:11px 0 0;
+  color:#fff;
+  font-size:clamp(1.7rem,3vw,3rem);
+  line-height:.94;
+  letter-spacing:-.04em;
+  font-weight:700;
+}
+
+.stackly-cinematic{
+  min-height:720px;
+  display:flex;
+  align-items:center;
+  isolation:isolate;
+}
+.se-cinematic__image,
+.se-cinematic__veil{
+  position:absolute;
+  inset:0;
+}
+.se-cinematic__image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(.18) saturate(.72) contrast(1.05);
+}
+.se-cinematic__veil{
+  z-index:1;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.72) 42%,rgba(5,5,5,.18) 100%),
+    linear-gradient(0deg,rgba(5,5,5,.68),transparent 45%);
+}
+.se-cinematic__content{
+  width:min(1400px,calc(100% - 56px));
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+.se-cinematic__content h2{
+  max-width:780px;
+  margin:20px 0 20px;
+  color:#fff;
+  font-size:clamp(3.2rem,7vw,7.4rem);
+  line-height:.86;
+  letter-spacing:-.065em;
+  font-weight:800;
+}
+.se-cinematic__content h2 i{
+  color:var(--se-red);
+  font-family:"Playfair Display",serif;
+  font-weight:600;
+}
+.se-cinematic__line{
+  width:70px;
+  height:1px;
+  background:var(--se-red);
+}
+.se-cinematic__content p{
+  max-width:460px;
+  margin:0 0 28px;
+  color:#b0b0b5;
+  font-size:12px;
+  line-height:1.9;
+}
+.se-cinematic__content a{
+  display:inline-flex;
+  align-items:center;
+  gap:15px;
+  padding-bottom:10px;
+  color:#fff;
+  border-bottom:1px solid rgba(224,62,82,.65);
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:700;
+  transition:.3s ease;
+}
+.se-cinematic__content a i{color:var(--se-red);transition:.3s ease}
+.se-cinematic__content a:hover{color:var(--se-red)}
+.se-cinematic__content a:hover i{transform:translateX(5px)}
+.se-cinematic__index{
+  position:absolute;
+  right:5%;
+  bottom:8%;
+  z-index:2;
+  color:rgba(255,255,255,.14);
+  font-size:9rem;
+  line-height:1;
+  letter-spacing:-.08em;
+  font-weight:800;
+}
+
+.stackly-curation{
+  background:
+    radial-gradient(circle at 88% 50%,rgba(224,62,82,.055),transparent 25%),
+    #070707;
+}
+.se-curation-grid{
+  min-height:700px;
+  padding:110px 0;
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:90px;
+  align-items:center;
+}
+.se-curation-copy h2{
+  margin:17px 0 23px;
+  font-size:clamp(2.8rem,5vw,5.4rem);
+  line-height:.9;
+  letter-spacing:-.06em;
+  font-weight:800;
+}
+.se-curation-copy > p{
+  max-width:500px;
+  margin:0;
+  color:#7e7e85;
+  font-size:12px;
+  line-height:1.95;
+}
+.se-curation-stats{
+  max-width:500px;
+  margin-top:42px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--se-line);
+}
+.se-curation-stats div{
+  padding:18px 15px 0 0;
+  border-right:1px solid var(--se-line);
+}
+.se-curation-stats div:last-child{border-right:0;padding-left:15px}
+.se-curation-stats strong{
+  display:block;
+  color:var(--se-red);
+  font-size:10px;
+  letter-spacing:.14em;
+}
+.se-curation-stats span{
+  display:block;
+  margin-top:7px;
+  color:#b4b4b9;
+  font-size:11px;
+}
+.se-curation-visual{
+  position:relative;
+  min-height:540px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.se-curation-frame{
+  width:76%;
+  height:500px;
+  overflow:hidden;
+  transform:rotate(2deg);
+  border:1px solid rgba(255,255,255,.11);
+  box-shadow:25px 35px 80px rgba(0,0,0,.45);
+}
+.se-curation-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:saturate(.78);
+  transition:transform .8s ease;
+}
+.se-curation-visual:hover .se-curation-frame img{transform:scale(1.06)}
+.se-curation-chip{
+  position:absolute;
+  left:4%;
+  bottom:5%;
+  width:180px;
+  min-height:150px;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:rgba(9,9,9,.92);
+  border:1px solid rgba(224,62,82,.40);
+  backdrop-filter:blur(14px);
+  transform:rotate(-3deg);
+}
+.se-curation-chip span{
+  color:var(--se-red);
+  font-size:8px;
+  letter-spacing:.25em;
+  font-weight:800;
+}
+.se-curation-chip strong{
+  color:#fff;
+  font-size:17px;
+  line-height:1;
+  letter-spacing:-.03em;
+}
+
+@media(max-width:950px){
+  .se-heading{grid-template-columns:1fr;gap:28px}
+  .se-moments-grid{grid-template-columns:1fr 1fr}
+  .se-moment--large{grid-column:1/-1;min-height:540px}
+  .se-moment{min-height:430px}
+  .se-curation-grid{grid-template-columns:1fr;gap:55px}
+  .se-curation-visual{min-height:580px}
+}
+@media(max-width:650px){
+  .se-wrap,.se-cinematic__content{width:min(100% - 30px,1400px)}
+  .se-heading{padding:75px 0 38px}
+  .se-moments-grid{grid-template-columns:1fr;gap:10px;padding-bottom:75px}
+  .se-moment--large,.se-moment{grid-column:auto;min-height:460px}
+  .stackly-cinematic{min-height:650px}
+  .se-cinematic__veil{
+    background:linear-gradient(90deg,rgba(5,5,5,.9),rgba(5,5,5,.48)),
+               linear-gradient(0deg,rgba(5,5,5,.72),transparent);
+  }
+  .se-cinematic__index{font-size:6rem;right:4%;bottom:5%}
+  .se-curation-grid{padding:75px 0}
+  .se-curation-visual{min-height:480px}
+  .se-curation-frame{width:82%;height:430px}
+  .se-curation-chip{left:0;bottom:3%;width:160px;min-height:135px}
+}
+</style>
+<!-- =========================================================
+     STACKLY VISUAL ELEVATION — ADDITIONAL 2 SECTIONS
+     Existing content preserved.
+     ========================================================= -->
+<section class="stackly-elevate stackly-process" data-aos="fade-up" data-aos-delay="240" data-aos-duration="900" data-aos-once="false">
+<div class="se-wrap">
+<div class="se-process-head" data-aos="fade-up" data-aos-delay="0" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<div>
+<span class="se-kicker">THE ART OF EXECUTION</span>
+<h2>From first idea<br/>to <i>final applause.</i></h2>
+</div>
+<p>Every exceptional event has a rhythm. We turn your vision into a carefully orchestrated journey where every transition feels effortless.</p>
+</div>
+<div class="se-process-track">
+<a aria_label="Imagine" class="se-process-step se-process-step-link motion-card interactive-lift" data-aos="fade-down" data-aos-delay="80" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<div class="se-process-step__num">01</div>
+<div class="se-process-step__icon"><i class="fas fa-lightbulb"></i></div>
+<h3>Imagine</h3>
+<p>We listen, explore, and shape the first spark of your celebration.</p>
+</a>
+<a aria_label="Curate" class="se-process-step se-process-step-link motion-card interactive-lift" data-aos="fade-left" data-aos-delay="160" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<div class="se-process-step__num">02</div>
+<div class="se-process-step__icon"><i class="fas fa-compass-drafting"></i></div>
+<h3>Curate</h3>
+<p>Concept, styling, atmosphere, and details are brought into one vision.</p>
+</a>
+<a aria_label="Orchestrate" class="se-process-step se-process-step-link motion-card interactive-lift" data-aos="fade-right" data-aos-delay="240" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<div class="se-process-step__num">03</div>
+<div class="se-process-step__icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+<h3>Orchestrate</h3>
+<p>Our team coordinates every moving part with calm precision.</p>
+</a>
+<a aria_label="Celebrate" class="se-process-step se-process-step-link motion-card interactive-lift" data-aos="zoom-in" data-aos-delay="320" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<div class="se-process-step__num">04</div>
+<div class="se-process-step__icon"><i class="fas fa-champagne-glasses"></i></div>
+<h3>Celebrate</h3>
+<p>You arrive, enjoy the moment, and leave the details to us.</p>
+</a>
+</div>
+</div>
+</section>
+<section class="stackly-elevate stackly-legacy" data-aos="fade-up" data-aos-delay="240" data-aos-duration="900" data-aos-once="false">
+<div class="se-legacy__image">
+<img alt="Elegant celebration atmosphere" loading="lazy" src="assets/images/d14.webp"/>
+</div>
+<div class="se-legacy__overlay"></div>
+<div class="se-wrap se-legacy__wrap">
+<div class="se-legacy__quote" data-aos="zoom-in-up" data-aos-delay="0" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<span class="se-kicker">THE STACKLY PROMISE</span>
+<div class="se-legacy__mark">“</div>
+<h2>Beautifully planned.<br/><i>Effortlessly remembered.</i></h2>
+<p>Because the best celebrations are not simply seen — they are felt, remembered, and talked about long after the lights go down.</p>
+<div class="se-legacy__signature">
+<span></span>
+<strong>STACKLY</strong>
+<small>LUXURY EVENT PLANNING AGENCY</small>
+</div>
+</div>
+<a aria_label="Start planning your event" class="se-legacy__badge interactive-lift" data-aos="slide-up" data-aos-delay="80" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<div>STACKLY</div>
+<span>CREATE<br/>THE<br/>MOMENT</span>
+<i class="fas fa-arrow-down"></i>
+</a>
+</div>
+</section>
+<style>
+/* =========================================================
+   ADDITIONAL VISUAL ELEVATION — 2 PREMIUM SECTIONS
+   ========================================================= */
+
+.stackly-process{
+  background:
+    linear-gradient(180deg,#070707 0%,#0a0a0a 100%);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.se-process-head{
+  padding:105px 0 70px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:70px;
+  align-items:end;
+}
+.se-process-head h2{
+  margin:15px 0 0;
+  color:#f7f7f5;
+  font-size:clamp(3rem,6vw,6rem);
+  line-height:.88;
+  letter-spacing:-.065em;
+  font-weight:800;
+}
+.se-process-head h2 i{
+  color:#e03e52;
+  font-family:"Playfair Display",serif;
+  font-weight:600;
+}
+.se-process-head p{
+  max-width:470px;
+  margin:0 0 4px;
+  color:#77777f;
+  font-size:12px;
+  line-height:1.95;
+}
+
+.se-process-track{
+  position:relative;
+  padding:0 0 105px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.se-process-step{
+  position:relative;
+  padding:0 25px 25px;
+  min-height:300px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(145deg,rgba(255,255,255,.025),rgba(255,255,255,.008));
+  transition:.4s cubic-bezier(.2,.7,.2,1);
+}
+.se-process-step:hover{
+  transform:translateY(-10px);
+  border-color:rgba(224,62,82,.38);
+  background:linear-gradient(145deg,rgba(224,62,82,.065),rgba(255,255,255,.012));
+  box-shadow:0 25px 55px rgba(0,0,0,.3);
+}
+.se-process-step__num{
+  position:absolute;
+  top:18px;
+  right:20px;
+  color:#45454c;
+  font-size:9px;
+  letter-spacing:.18em;
+  font-weight:800;
+}
+.se-process-step__icon{
+  width:58px;
+  height:58px;
+  margin:28px 0 45px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(224,62,82,.35);
+  border-radius:50%;
+  color:#e03e52;
+  background:rgba(224,62,82,.045);
+  transition:.35s ease;
+}
+.se-process-step:hover .se-process-step__icon{
+  color:#fff;
+  background:#e03e52;
+  border-color:#e03e52;
+  transform:rotate(-8deg) scale(1.05);
+}
+.se-process-step h3{
+  margin:0 0 11px;
+  color:#fff;
+  font-size:22px;
+  letter-spacing:-.03em;
+}
+.se-process-step p{
+  margin:0;
+  color:#707078;
+  font-size:11px;
+  line-height:1.8;
+}
+
+.stackly-legacy{
+  min-height:720px;
+  display:flex;
+  align-items:center;
+  isolation:isolate;
+}
+.se-legacy__image,
+.se-legacy__overlay{
+  position:absolute;
+  inset:0;
+}
+.se-legacy__image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.65) contrast(1.08);
+}
+.se-legacy__overlay{
+  z-index:1;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.78) 42%,rgba(5,5,5,.28) 100%),
+    linear-gradient(0deg,rgba(5,5,5,.72),transparent 50%);
+}
+.se-legacy__wrap{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:80px;
+}
+.se-legacy__quote{
+  max-width:820px;
+  padding:105px 0;
+}
+.se-legacy__mark{
+  height:45px;
+  margin:25px 0 0;
+  color:#e03e52;
+  font-family:"Playfair Display",serif;
+  font-size:75px;
+  line-height:.8;
+}
+.se-legacy__quote h2{
+  margin:15px 0 24px;
+  color:#fff;
+  font-size:clamp(3rem,6.2vw,6.5rem);
+  line-height:.86;
+  letter-spacing:-.065em;
+  font-weight:800;
+}
+.se-legacy__quote h2 i{
+  color:#e03e52;
+  font-family:"Playfair Display",serif;
+  font-weight:600;
+}
+.se-legacy__quote > p{
+  max-width:530px;
+  margin:0;
+  color:#a1a1a6;
+  font-size:12px;
+  line-height:1.95;
+}
+.se-legacy__signature{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:45px auto;
+  column-gap:12px;
+  align-items:center;
+}
+.se-legacy__signature span{
+  width:45px;
+  height:1px;
+  grid-row:span 2;
+  background:#e03e52;
+}
+.se-legacy__signature strong{
+  color:#e8e8ea;
+  font-size:10px;
+  letter-spacing:.24em;
+}
+.se-legacy__signature small{
+  color:#55555d;
+  font-size:7px;
+  letter-spacing:.2em;
+}
+.se-legacy__badge{
+  width:175px;
+  height:175px;
+  flex:0 0 175px;
+  border:1px solid rgba(224,62,82,.55);
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  background:rgba(7,7,7,.25);
+  backdrop-filter:blur(10px);
+  box-shadow:0 25px 60px rgba(0,0,0,.3);
+  transition:.4s ease;
+}
+.se-legacy__badge:hover{
+  transform:rotate(8deg) scale(1.04);
+  background:rgba(224,62,82,.13);
+}
+.se-legacy__badge div{
+  color:#e03e52;
+  font-size:8px;
+  letter-spacing:.28em;
+  font-weight:800;
+}
+.se-legacy__badge span{
+  text-align:center;
+  color:#fff;
+  font-size:12px;
+  line-height:1.25;
+  letter-spacing:.14em;
+  font-weight:700;
+}
+.se-legacy__badge i{
+  color:#77777f;
+  font-size:9px;
+}
+
+@media(max-width:950px){
+  .se-process-head{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .se-process-track{
+    grid-template-columns:1fr 1fr;
+  }
+  .se-process-line{display:none}
+  .se-legacy__wrap{
+    align-items:flex-end;
+  }
+}
+@media(max-width:650px){
+  .se-process-head{padding:75px 0 45px}
+  .se-process-track{
+    grid-template-columns:1fr;
+    padding-bottom:75px;
+  }
+  .se-process-step{min-height:250px}
+  .se-process-step__icon{margin-bottom:35px}
+  .stackly-legacy{min-height:700px}
+  .se-legacy__wrap{
+    min-height:700px;
+    align-items:flex-start;
+    flex-direction:column;
+    justify-content:center;
+    gap:35px;
+  }
+  .se-legacy__quote{padding:70px 0 0}
+  .se-legacy__badge{
+    width:120px;
+    height:120px;
+    flex-basis:120px;
+  }
+}
+
+</style>
+<footer class="stackly-creative-footer">
+<div class="scf-orb scf-orb-a"></div>
+<div class="scf-orb scf-orb-b"></div>
+<div class="scf-wrap">
+<!-- Signature CTA: intentionally not a conventional footer column layout -->
+<section class="scf-signature">
+<div class="scf-signature__number">||</div>
+<div class="scf-signature__copy">
+<span>LET'S CREATE SOMETHING EXTRAORDINARY</span>
+<h2>Make the moment<br/><i>unforgettable.</i></h2>
+<p>Stackly is ready to turn your vision into a beautifully curated experience with meticulous planning, refined design, and flawless execution.</p>
+</div>
+<a aria-label="Start a Conversation" class="scf-round-cta interactive-lift" data-aos="fade-up" data-aos-delay="240" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false" href="404.html">
+<span>START A<br/>CONVERSATION</span>
+<i class="fas fa-arrow-up-right-from-square"></i>
+</a>
+</section>
+<!-- Contact becomes a visual navigation rail -->
+<section class="scf-contact" data-aos="fade-up" data-aos-delay="240" data-aos-duration="900" data-aos-once="false">
+<div class="scf-contact__label" data-aos="fade-down" data-aos-delay="320" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<small>CONTACT</small>
+<strong>We're here.</strong>
+</div>
+<a class="scf-contact__item motion-link interactive-lift" href="404.html">
+    <b>01</b>
+    <span><small>OFFICE</small>MMR Complex, Salem, TN, India</span>
+    <i class="fas fa-arrow-up-right-from-square"></i>
+</a>
+
+<a class="scf-contact__item motion-link interactive-lift" href="404.html">
+    <b>02</b>
+    <span><small>EMAIL</small>support@stackly.com</span>
+    <i class="fas fa-arrow-up-right-from-square"></i>
+</a>
+
+<a class="scf-contact__item motion-link interactive-lift" href="404.html">
+    <b>03</b>
+    <span><small>CALL ANYTIME</small>+91-70107927450</span>
+    <i class="fas fa-arrow-up-right-from-square"></i>
+</a>
+</section>
+<!-- Main content: asymmetrical editorial composition -->
+<section class="scf-main" data-aos="fade-up" data-aos-delay="240" data-aos-duration="900" data-aos-once="false">
+<div class="scf-brand" data-aos="zoom-in-up" data-aos-delay="240" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<div class="scf-brand__top">
+<a class="scf-logo interactive-lift" href="index.html">
+<img alt="Stackly Logo" src="assets/images/logo/stackly_logo.webp"/>
+</a>
+<span>EST. 2026</span>
+</div>
+<p>Stackly is a premier luxury event planning agency, Creating unforgettable moments, high-profile weddings, and high-impact brand galas with uncompromised precision.</p>
+<div class="scf-socials">
+<a aria-label="Gmail" class="interactive-lift" data-aos="zoom-in" data-aos-delay="120" data-aos-duration="650" data-aos-once="false" href="404.html"><i class="fas fa-envelope"></i></a>
+<a aria-label="LinkedIn" class="interactive-lift" data-aos="zoom-in" data-aos-delay="190" data-aos-duration="650" data-aos-once="false" href="404.html"><i class="fab fa-linkedin-in"></i></a>
+<a aria-label="X" class="scf-x interactive-lift" data-aos="zoom-in" data-aos-delay="260" data-aos-duration="650" data-aos-once="false" href="404.html">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+</svg>
+</a>
+<a aria-label="Facebook" class="interactive-lift" data-aos="zoom-in" data-aos-delay="330" data-aos-duration="650" data-aos-once="false" href="404.html"><i class="fab fa-facebook-f"></i></a>
+<a aria-label="Instagram" class="interactive-lift" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="650" data-aos-once="false" href="404.html"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+<div class="scf-navigation" data-aos="slide-up" data-aos-delay="320" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<div class="scf-nav-block">
+<span class="scf-kicker">NAVIGATE</span>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="160" data-aos-duration="650" data-aos-once="false" href="index.html"><b>01</b>Home<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="215" data-aos-duration="650" data-aos-once="false" href="about.html"><b>02</b>About<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="270" data-aos-duration="650" data-aos-once="false" href="services.html"><b>03</b>Services<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="325" data-aos-duration="650" data-aos-once="false" href="packages.html"><b>04</b>Packages<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="380" data-aos-duration="650" data-aos-once="false" href="contact.html"><b>05</b>Contact<i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="scf-nav-block">
+<span class="scf-kicker">EXPERTISE</span>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="435" data-aos-duration="650" data-aos-once="false" href="404.html"><b>01</b>Luxury Weddings<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="490" data-aos-duration="650" data-aos-once="false" href="404.html"><b>02</b>Memorable Birthdays<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="545" data-aos-duration="650" data-aos-once="false" href="404.html"><b>03</b>Corporate Summits<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="600" data-aos-duration="650" data-aos-once="false" href="404.html"><b>04</b>Private Celebrations<i class="fas fa-arrow-right"></i></a>
+<a class="interactive-lift" data-aos="fade-up" data-aos-delay="655" data-aos-duration="650" data-aos-once="false" href="404.html"><b>05</b>Destination Events<i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="scf-news" data-aos="flip-up" data-aos-delay="0" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
+<span class="scf-kicker">PRIVATE ACCESS</span>
+<div class="scf-news__title">Luxury<br/><i>Notes.</i></div>
+<p>Subscribe to receive exclusive event design trends, luxury planning insights, and private invitation updates.</p>
+<form id="newsletterForm" class="newsletter-form" novalidate>
+<input
+    id="newsletterEmail"
+    name="email"
+    aria-label="Your Email"
+    autocomplete="email"
+    inputmode="email"
+    placeholder="Your Email"
+    type="email"
+    maxlength="254"
+    required
+/>
+<button aria-label="Subscribe" class="interactive-lift" type="submit">
+    <i class="fas fa-arrow-right"></i>
+</button>
+</form>
+<div id="newsletterError" class="newsletter-error" role="alert" aria-live="polite"></div>
+<div class="scf-news__stamp">CURATED • PRIVATE • EXCLUSIVE</div>
+</div>
+</section>
+<section class="scf-bottom scf-copyright-visible">
+<p>© 2026 Stackly Luxury Event Planning Agency. <br /> All Rights Reserved.</p>
+<div>
+<a class="interactive-lift" href="404.html">Privacy Policy</a>
+<span></span>
+<a class="interactive-lift" href="404.html">Terms &amp; Conditions</a>
+</div>
+</section>
+</div>
+</footer>
+<style>
+/* ==========================================================
+   STACKLY CREATIVE FOOTER — V3
+   Only the footer is replaced.
+   Uses the page's existing red/dark luxury palette.
+   ========================================================== */
+.stackly-creative-footer {
+  --scf-red:#e03e52;
+  --scf-red-dark:#c92e42;
+  --scf-black:#060606;
+  --scf-white:#f7f7f5;
+  --scf-gray:#85858b;
+  --scf-line:rgba(255,255,255,.10);
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 14%,rgba(224,62,82,.085),transparent 24%),
+    linear-gradient(120deg,#050505 0%,#0a0a0a 55%,#070707 100%);
+  color:var(--scf-gray);
+  border-top:1px solid var(--scf-line);
+}
+.scf-wrap {
+  width:min(1400px,calc(100% - 56px));
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+.scf-orb {
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(95px);
+}
+.scf-orb-a {
+  width:360px;height:360px;right:-130px;top:130px;
+  background:rgba(224,62,82,.045);
+}
+.scf-orb-b {
+  width:250px;height:250px;left:-150px;bottom:120px;
+  background:rgba(224,62,82,.025);
+}
+
+.scf-signature {
+  position:relative;
+  min-height:390px;
+  padding:78px 0 72px;
+  display:grid;
+  grid-template-columns:70px minmax(0,1fr) 180px;
+  align-items:end;
+  gap:34px;
+  border-bottom:1px solid var(--scf-line);
+}
+.scf-signature__copy {
+  min-width:0;
+  width:100%;
+  transform:none !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+.scf-signature__number {
+  align-self:start;
+  color:var(--scf-red);
+  font-size:11px;
+  letter-spacing:.25em;
+  font-weight:800;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+}
+.scf-signature__copy > span,
+.scf-kicker {
+  display:block;
+  color:var(--scf-red);
+  font-size:9px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  font-weight:800;
+}
+.scf-signature h2 {
+  margin:15px 0 20px;
+  color:var(--scf-white);
+  font-size:clamp(3.2rem,7vw,7.2rem);
+  line-height:.86;
+  letter-spacing:-.065em;
+  font-weight:800;
+}
+.scf-signature h2 i,
+.scf-news__title i {
+  color:var(--scf-red);
+  font-family:"Playfair Display",serif;
+  font-weight:600;
+  letter-spacing:-.03em;
+}
+.scf-signature p {
+  max-width:670px;
+  margin:0;
+  color:#77777f;
+  font-size:12px;
+  line-height:1.9;
+  font-weight:300;
+}
+.scf-round-cta {
+  width:165px;height:165px;
+  border-radius:50%;
+  justify-self:end;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  border:1px solid rgba(224,62,82,.58);
+  background:rgba(224,62,82,.07);
+  transition:.4s cubic-bezier(.2,.7,.2,1);
+}
+.scf-round-cta span {
+  font-size:8px;
+  line-height:1.6;
+  letter-spacing:.18em;
+  font-weight:800;
+}
+.scf-round-cta i {
+  font-size:12px;
+  transition:.3s ease;
+}
+.scf-round-cta:hover {
+  color:#fff;
+  background:var(--scf-red);
+  border-color:var(--scf-red);
+  transform:rotate(5deg) scale(1.04);
+  box-shadow:0 25px 55px rgba(224,62,82,.20);
+}
+.scf-round-cta:hover i {transform:translate(4px,-4px)}
+
+.scf-contact {
+  display:grid;
+  grid-template-columns:180px repeat(3,1fr);
+  border-bottom:1px solid var(--scf-line);
+}
+.scf-contact__label {
+  padding:28px 0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+}
+.scf-contact__label small {
+  color:#55555d;
+  font-size:8px;
+  letter-spacing:.24em;
+  font-weight:800;
+}
+.scf-contact__label strong {
+  color:#d8d8dc;
+  font-size:13px;
+  font-weight:500;
+}
+.scf-contact__item {
+  min-height:105px;
+  padding:22px 25px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  color:#8b8b92;
+  text-decoration:none;
+  border-left:1px solid var(--scf-line);
+  transition:.3s ease;
+}
+.scf-contact__item b {
+  align-self:flex-start;
+  color:#4f4f56;
+  font-size:8px;
+  letter-spacing:.15em;
+}
+.scf-contact__item span {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  color:#c9c9ce;
+  font-size:11px;
+}
+.scf-contact__item span small {
+  color:#56565e;
+  font-size:7px;
+  letter-spacing:.22em;
+  font-weight:800;
+}
+.scf-contact__item > i {
+  color:#44444b;
+  font-size:9px;
+  transition:.3s ease;
+}
+.scf-contact__item:hover {
+  background:rgba(224,62,82,.055);
+}
+.scf-contact__item:hover span {color:#fff}
+.scf-contact__item:hover > i {color:var(--scf-red);transform:translate(3px,-3px)}
+
+.scf-main {
+  padding:74px 0 62px;
+  display:grid;
+  grid-template-columns:1.15fr 1.25fr .8fr;
+  gap:0;
+}
+.scf-brand {
+  padding-right:55px;
+}
+.scf-brand__top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.scf-logo img {
+  width:auto;
+  height:46px;
+  display:block;
+  object-fit:contain;
+  transition:.3s ease;
+}
+.scf-logo:hover img {transform:scale(1.04)}
+.scf-brand__top > span {
+  color:#494950;
+  font-size:8px;
+  letter-spacing:.22em;
+  font-weight:800;
+}
+.scf-brand > p {
+  max-width:430px;
+  margin:24px 0 30px;
+  color:#77777f;
+  font-size:12px;
+  line-height:1.9;
+  font-weight:300;
+}
+.scf-socials {
+  display:flex;
+  gap:8px;
+}
+.scf-socials a {
+  width:38px;height:38px;
+  display:grid;
+  place-items:center;
+  color:#9999a0;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:50%;
+  background:rgba(255,255,255,.018);
+  text-decoration:none;
+  transition:.3s ease;
+}
+.scf-socials a:hover {
+  color:#fff;
+  background:var(--scf-red);
+  border-color:var(--scf-red);
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(224,62,82,.18);
+}
+.scf-socials svg,
+.scf-socials a > i {
+  position:relative;
+  z-index:3;
+}
+
+.scf-socials svg {
+  width:15px;
+  height:15px;
+  fill:currentColor;
+  display:block;
+}
+
+.scf-socials a > i {
+  display:inline-block;
+}
+
+.scf-navigation {
+  padding:0 45px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:38px;
+  border-left:1px solid var(--scf-line);
+  border-right:1px solid var(--scf-line);
+}
+.scf-nav-block .scf-kicker {
+  margin-bottom:19px;
+}
+.scf-nav-block a {
+  min-height:30px;
+  display:grid;
+  grid-template-columns:24px 1fr 12px;
+  align-items:center;
+  gap:7px;
+  color:#85858c;
+  font-size:11px;
+  text-decoration:none;
+  transition:.25s ease;
+}
+.scf-nav-block a b {
+  color:#4b4b52;
+  font-size:7px;
+  font-weight:700;
+}
+.scf-nav-block a i {
+  color:transparent;
+  font-size:8px;
+  transition:.25s ease;
+}
+.scf-nav-block a:hover {
+  color:#fff;
+  transform:translateX(5px);
+}
+.scf-nav-block a:hover b,
+.scf-nav-block a:hover i {color:var(--scf-red)}
+
+.scf-news {
+  margin-left:45px;
+  padding:25px;
+  align-self:start;
+  background:linear-gradient(145deg,rgba(224,62,82,.075),rgba(255,255,255,.018));
+  border:1px solid rgba(224,62,82,.23);
+}
+.scf-news__title {
+  margin:13px 0 10px;
+  color:#fff;
+  font-size:30px;
+  line-height:.95;
+  letter-spacing:-.04em;
+  font-weight:800;
+}
+.scf-news > p {
+  margin:0 0 22px;
+  color:#717179;
+  font-size:10px;
+  line-height:1.8;
+}
+.scf-news form {
+  height:45px;
+  display:flex;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.3);
+}
+.scf-news input {
+  min-width:0;
+  flex:1;
+  padding:0 12px;
+  border:0;
+  outline:0;
+  color:#fff;
+  background:transparent;
+  font-size:11px;
+}
+.scf-news input::placeholder {color:#55555d}
+.scf-news button {
+  width:45px;
+  border:0;
+  color:#fff;
+  background:var(--scf-red);
+  cursor:pointer;
+  transition:.25s ease;
+}
+.scf-news button:hover {background:var(--scf-red-dark)}
+.scf-news__stamp {
+  margin-top:18px;
+  color:#4f4f56;
+  font-size:7px;
+  letter-spacing:.18em;
+  font-weight:800;
+}
+
+.scf-bottom {
+  min-height:68px;
+  padding:20px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  border-top:1px solid var(--scf-line);
+}
+.scf-bottom p {
+  margin:0;
+  color:#55555d;
+  font-size:9px;
+}
+.scf-bottom > div {
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.scf-bottom a {
+  color:#5d5d65;
+  font-size:9px;
+  text-decoration:none;
+  transition:.25s ease;
+}
+.scf-bottom a:hover {color:#fff}
+.scf-bottom span {
+  width:1px;height:10px;
+  background:rgba(255,255,255,.12);
+}
+
+@media(max-width:1050px) {
+  .scf-signature {grid-template-columns:50px minmax(0,1fr) 145px}
+  .scf-round-cta {width:135px;height:135px}
+  .scf-contact {grid-template-columns:140px repeat(3,1fr)}
+  .scf-main {grid-template-columns:1fr 1.4fr}
+  .scf-brand {grid-column:1/-1;padding:0 0 45px}
+  .scf-news {margin-left:35px}
+}
+@media(max-width:800px) {
+  .scf-wrap {width:min(100% - 36px,1400px)}
+  .scf-signature {
+    min-height:auto;
+    padding:60px 0;
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+  .scf-signature__number {
+    writing-mode:initial;
+    transform:none;
+  }
+  .scf-round-cta {
+    width:100%;
+    height:70px;
+    border-radius:0;
+    flex-direction:row;
+    justify-content:space-between;
+    padding:0 25px;
+  }
+  .scf-contact {grid-template-columns:1fr}
+  .scf-contact__label {padding:25px 0 10px}
+  .scf-contact__item {
+    min-height:75px;
+    border-left:0;
+    border-top:1px solid var(--scf-line);
+    padding:18px 0;
+  }
+  .scf-main {grid-template-columns:1fr}
+  .scf-navigation {
+    padding:35px 0;
+    border-left:0;
+    border-right:0;
+    border-top:1px solid var(--scf-line);
+    border-bottom:1px solid var(--scf-line);
+  }
+  .scf-news {margin:35px 0 0}
+}
+@media(max-width:560px) {
+  .scf-wrap {width:min(100% - 28px,1400px)}
+  .scf-signature h2 {font-size:3.1rem}
+  .scf-navigation {
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .scf-bottom {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+</style>
+
+<script id="stackly-mobile-menu-controller">
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+  const panel = menu ? menu.querySelector('.mobile-menu__panel') : null;
+  if (!toggle || !menu) return;
+
+  let isOpen = false;
+  let scrollY = 0;
+  let locked = false;
+  let startY = 0;
+  let startX = 0;
+
+  const html = document.documentElement;
+  const body = document.body;
+
+  const original = {
+    body: {},
+    html: {}
+  };
+
+  const saveInline = () => {
+    original.body = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      height: body.style.height,
+      minHeight: body.style.minHeight,
+      maxHeight: body.style.maxHeight,
+      overflow: body.style.overflow,
+      touchAction: body.style.touchAction,
+      overscrollBehavior: body.style.overscrollBehavior,
+      overscrollBehaviorY: body.style.overscrollBehaviorY
+    };
+    original.html = {
+      overflow: html.style.overflow,
+      height: html.style.height,
+      touchAction: html.style.touchAction,
+      overscrollBehavior: html.style.overscrollBehavior,
+      overscrollBehaviorY: html.style.overscrollBehaviorY
+    };
+  };
+
+  const restoreInline = (el, values) => {
+    Object.keys(values).forEach(k => { el.style[k] = values[k]; });
+  };
+
+  const lock = () => {
+    if (locked) return;
+    locked = true;
+    scrollY = Math.max(0, window.scrollY || window.pageYOffset || 0);
+    saveInline();
+
+    html.classList.add('menu-open');
+    body.classList.add('menu-open');
+
+    html.style.overflow = 'hidden';
+    html.style.height = '100%';
+    html.style.touchAction = 'none';
+    html.style.overscrollBehavior = 'none';
+    html.style.overscrollBehaviorY = 'none';
+
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+    body.style.height = '100%';
+    body.style.minHeight = '100%';
+    body.style.maxHeight = '100%';
+    body.style.overflow = 'hidden';
+    body.style.touchAction = 'none';
+    body.style.overscrollBehavior = 'none';
+    body.style.overscrollBehaviorY = 'none';
+  };
+
+  const unlock = () => {
+    if (!locked) return;
+    const y = scrollY;
+    locked = false;
+
+    html.classList.remove('menu-open');
+    body.classList.remove('menu-open');
+    restoreInline(html, original.html);
+    restoreInline(body, original.body);
+
+    // Restore after the browser has released the fixed body.
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+    });
+  };
+
+  const setMenu = (open) => {
+    if (isOpen === open) return;
+    isOpen = open;
+
+    if (open) lock();
+
+    menu.classList.toggle('is-open', open);
+    menu.setAttribute('aria-hidden', String(!open));
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    toggle.innerHTML = open
+      ? '<i class="fas fa-xmark text-sm"></i>'
+      : '<i class="fas fa-bars text-sm"></i>';
+
+    if (!open) unlock();
+  };
+
+  toggle.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    setMenu(!isOpen);
+  });
+
+  // Never allow a gesture to reach the page while the menu is open.
+  // Only the menu panel itself may consume vertical touch scrolling.
+  document.addEventListener('touchstart', e => {
+    if (!isOpen || !e.touches.length) return;
+    startY = e.touches[0].clientY;
+    startX = e.touches[0].clientX;
+  }, {capture:true, passive:true});
+
+  document.addEventListener('touchmove', e => {
+    if (!isOpen) return;
+
+    const target = e.target;
+    const inPanel = panel && panel.contains(target);
+    if (!inPanel) {
+      e.preventDefault();
+      return;
+    }
+
+    // Horizontal/diagonal gestures must not transfer momentum to the page.
+    const t = e.touches[0];
+    const dy = startY - t.clientY;
+    const dx = startX - t.clientX;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      e.preventDefault();
+      return;
+    }
+
+    const atTop = panel.scrollTop <= 0;
+    const atBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
+
+    // Stop iOS rubber-band at the panel edges.
+    if ((atTop && dy < 0) || (atBottom && dy > 0)) {
+      e.preventDefault();
+    }
+  }, {capture:true, passive:false});
+
+  document.addEventListener('wheel', e => {
+    if (!isOpen) return;
+    if (!panel || !panel.contains(e.target)) e.preventDefault();
+  }, {capture:true, passive:false});
+
+  // Guard against browser-induced root scrolling without continuously fighting
+  // normal scrolling. While locked, the body offset is the source of truth.
+  window.addEventListener('scroll', () => {
+    if (!isOpen) return;
+    if (Math.abs((window.scrollY || 0)) > 0) {
+      window.scrollTo(0, 0);
+    }
+  }, {passive:true});
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && isOpen) {
+      setMenu(false);
+      toggle.focus();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024 && isOpen) setMenu(false);
+  }, {passive:true});
+
+  window.addEventListener('pageshow', () => {
+    isOpen = false;
+    locked = false;
+    menu.classList.remove('is-open');
+    menu.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation');
+    toggle.innerHTML = '<i class="fas fa-bars text-sm"></i>';
+    html.classList.remove('menu-open');
+    body.classList.remove('menu-open');
+  });
+});
+</script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script><script>
+AOS.init({
+    duration: 900,
+    easing: 'ease-out-cubic',
+    offset: 90,
+    delay: 0,
+    once: false,
+    mirror: true,
+    anchorPlacement: 'top-bottom',
+    disable: function () {
+        return false;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    AOS.refreshHard();
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  /* Keep mobile layout locked to viewport width. */
+  const lockViewportOverflow = () => {
+    document.documentElement.style.maxWidth = '100%';
+    document.body.style.maxWidth = '100%';
+  };
+  lockViewportOverflow();
+  window.addEventListener('resize', lockViewportOverflow, {passive:true});
+});
+</script>
+
+<script id="stackly-404-navigation-bridge">
+(function () {
+  function build404Url(sourceUrl) {
+    try {
+      const url = new URL('404.html', window.location.href);
+
+      url.searchParams.set('return', sourceUrl);
+
+      url.searchParams.set(
+        'scroll',
+        String(
+          Math.max(
+            0,
+            Math.round(window.scrollY || window.pageYOffset || 0)
+          )
+        )
+      );
+
+      return url.href;
+    } catch (e) {
+      return '404.html';
+    }
+  }
+
+  document.addEventListener('click', function (event) {
+    const link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+
+    const rawHref = link.getAttribute('href');
+    if (!rawHref) return;
+
+    let destination;
+
+    try {
+      destination = new URL(rawHref, window.location.href);
+    } catch (e) {
+      return;
+    }
+
+    const is404 =
+      destination.origin === window.location.origin &&
+      /(^|\/)404\.html$/i.test(destination.pathname);
+
+    if (!is404) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+const returnUrl = window.location.href;
+
+/* Tell index.html that this navigation is returning from 404 */
+try {
+  sessionStorage.setItem("stackly-returning-from-404", "1");
+} catch (e) {}
+
+const final404 = build404Url(returnUrl);
+
+    /*
+     * IMPORTANT:
+     * Keep 404 in the same browser history chain.
+     * This allows 404 -> Back to Previous Page
+     * to restore the exact previous page without
+     * reloading index.html.
+     */
+    window.location.href = final404;
+  }, true);
+})();
+</script>
+
+
+<script id="stackly-newsletter-validation-js">
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("newsletterForm");
+  const input = document.getElementById("newsletterEmail");
+  const error = document.getElementById("newsletterError");
+
+  if (!form || !input || !error) return;
+
+  const normalizeEmail = (value) => value.trim().replace(/\s+/g, "");
+
+  const setError = (message) => {
+    error.textContent = message;
+    error.classList.toggle("is-visible", Boolean(message));
+    form.classList.toggle("is-invalid", Boolean(message));
+    form.classList.remove("is-valid");
+    input.setCustomValidity(message || "");
+  };
+
+  const setValid = () => {
+    error.textContent = "";
+    error.classList.remove("is-visible");
+    form.classList.remove("is-invalid");
+    form.classList.add("is-valid");
+    input.setCustomValidity("");
+  };
+
+  const validateEmail = (raw) => {
+    const email = normalizeEmail(raw);
+
+    if (!email) {
+      return "Please enter your email address.";
+    }
+
+    if (email.length > 254) {
+      return "Email address must be 254 characters or fewer.";
+    }
+
+    if (/\s/.test(email)) {
+      return "Email address cannot contain spaces.";
+    }
+
+    if (email.includes("..")) {
+      return "Email address cannot contain consecutive dots.";
+    }
+
+    const parts = email.split("@");
+    if (parts.length !== 2) {
+      return "Please enter a valid email address.";
+    }
+
+    const [local, domain] = parts;
+
+    if (!local || !domain) {
+      return "Please enter a complete email address.";
+    }
+
+    if (local.length > 64) {
+      return "The email name before @ is too long.";
+    }
+
+    if (local.startsWith(".") || local.endsWith(".")) {
+      return "The email name cannot start or end with a dot.";
+    }
+
+    if (!/^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(local)) {
+      return "Use a valid email name before @.";
+    }
+
+    if (domain.length > 253) {
+      return "The email domain is too long.";
+    }
+
+    if (
+      domain.startsWith(".") ||
+      domain.endsWith(".") ||
+      domain.startsWith("-") ||
+      domain.endsWith("-")
+    ) {
+      return "Please enter a valid email domain.";
+    }
+
+    const labels = domain.split(".");
+
+    if (labels.length < 2) {
+      return "Please use a complete domain, such as example.com.";
+    }
+
+    if (labels.some(label => !label || label.length > 63)) {
+      return "Please enter a valid email domain.";
+    }
+
+    if (labels.some(label => label.startsWith("-") || label.endsWith("-"))) {
+      return "Email domain labels cannot start or end with a hyphen.";
+    }
+
+    if (!labels.every(label => /^[A-Za-z0-9-]+$/.test(label))) {
+      return "Email domain contains invalid characters.";
+    }
+
+    const tld = labels[labels.length - 1];
+
+    if (!/^[A-Za-z]{2,63}$/.test(tld)) {
+      return "Please enter a valid domain extension.";
+    }
+
+    return "";
+  };
+
+  input.addEventListener("input", () => {
+    if (input.value !== input.value.trim()) {
+      input.value = input.value.trimStart();
+    }
+
+    const message = validateEmail(input.value);
+    if (message) {
+      setError(message);
+    } else {
+      setValid();
+    }
+  });
+
+  input.addEventListener("blur", () => {
+    const message = validateEmail(input.value);
+    if (message) {
+      setError(message);
+    } else {
+      setValid();
+    }
+  });
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const message = validateEmail(input.value);
+
+    if (message) {
+      setError(message);
+      input.focus();
+      return;
+    }
+
+    const email = normalizeEmail(input.value);
+    input.value = email;
+    setValid();
+
+    form.classList.add("is-submitting");
+
+    /* Small professional success pause before redirect. */
+    setTimeout(() => {
+      window.location.href = "404.html";
+    }, 350);
+  });
+});
+</script>
+
+
+<script id="stackly-newsletter-reset-on-back">
+window.addEventListener("pageshow", function () {
+  const form = document.getElementById("newsletterForm");
+  const input = document.getElementById("newsletterEmail");
+  const error = document.getElementById("newsletterError");
+
+  if (!form || !input) return;
+
+  /* Clear the newsletter whenever index.html is restored,
+     including browser back navigation / bfcache restores. */
+  form.reset();
+  input.value = "";
+  input.setCustomValidity("");
+  form.classList.remove("is-invalid", "is-valid", "is-submitting");
+
+  if (error) {
+    error.textContent = "";
+    error.classList.remove("is-visible");
+  }
+});
+</script>
+
+
+<script id="stackly-preloader-js">
+(() => {
+  const preloader = document.getElementById("stacklyPreloader");
+  const bar = document.getElementById("spProgress");
+  const percent = document.getElementById("spPercent");
+  const status = document.getElementById("spStatus");
+
+  if (!preloader || !bar || !percent || !status) return;
+
+  const states = [
+    [18, "CALIBRATING SIGNATURE"],
+    [36, "OPENING PRIVATE ACCESS"],
+    [54, "CURATING EXPERIENCE"],
+    [72, "ALIGNING DETAILS"],
+    [88, "POLISHING THE MOMENT"],
+    [100, "WELCOME TO STACKLY"]
+  ];
+
+  let current = 0;
+  let ready = false;
+  let interval;
+
+  const render = (value, text) => {
+    current = value;
+    bar.style.width = value + "%";
+    percent.textContent = String(value).padStart(2, "0") + "%";
+    status.textContent = text;
+  };
+
+  const finish = () => {
+    if (!ready) return;
+    render(100, "WELCOME TO STACKLY");
+    setTimeout(() => {
+      preloader.classList.add("is-done");
+      document.documentElement.classList.remove("preloader-active");
+      document.body.classList.remove("preloader-active");
+      clearInterval(interval);
+    }, 420);
+  };
+
+  document.documentElement.classList.add("preloader-active");
+  document.body.classList.add("preloader-active");
+
+  let i = 0;
+  interval = setInterval(() => {
+    if (i < states.length) {
+      render(states[i][0], states[i][1]);
+      i++;
+    } else {
+      clearInterval(interval);
+      finish();
+    }
+  }, 180);
+
+  window.addEventListener("load", () => {
+    ready = true;
+    if (current >= 88) finish();
+  });
+
+  /* Safety fallback in case a remote asset stalls. */
+  setTimeout(() => {
+    ready = true;
+    finish();
+  }, 2200);
+})();
+</script>
+
+
+<script id="stackly-active-nav-js">
+document.addEventListener("DOMContentLoaded", () => {
+  const currentFile = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+  document.querySelectorAll("header nav .nav-link, .mobile-menu__panel .mobile-nav-link").forEach(link => {
+    const href = (link.getAttribute("href") || "").split("#")[0].split("?")[0].toLowerCase();
+    const target = href || "index.html";
+    const isActive = target === currentFile || (currentFile === "" && target === "index.html");
+
+    link.classList.toggle("nav-link-active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+});
+
+
+</script>
+
+<script>
+  window.goBack = function () {
+
+    /*
+     * Return through browser history instead of loading
+     * index.html again.
+     *
+     * This preserves:
+     * - exact scroll position
+     * - current page state
+     * - already loaded assets
+     * - AOS state
+     * - no unnecessary preloader
+     */
+
+    if (window.history.length > 1 && document.referrer) {
+        try {
+            const referrer = new URL(document.referrer);
+            const current = new URL(window.location.href);
+
+            if (referrer.origin === current.origin) {
+                window.history.back();
+                return;
+            }
+        } catch (e) {
+            // Continue to fallback below.
+        }
+    }
+
+    /*
+     * Fallback for direct visits / new tabs where
+     * browser history is unavailable.
+     */
+    const returnUrl = getReturnUrl();
+
+    if (returnUrl && returnUrl !== window.location.href) {
+        window.location.href = returnUrl;
+    } else {
+        window.location.href = 'index.html';
+    }
+};
+</script>
+
+<script id="stackly-clear-hover-on-404-return">
+(function () {
+
+  function clearReturnedHover() {
+
+    let returning = false;
+
+    try {
+      returning =
+        sessionStorage.getItem("stackly-returning-from-404") === "1";
+
+      if (returning) {
+        sessionStorage.removeItem("stackly-returning-from-404");
+      }
+    } catch (e) {
+      returning = false;
+    }
+
+    if (!returning) return;
+
+    /*
+     * Temporarily disable pointer interaction on the
+     * contact cards so the browser cannot keep the
+     * previous :hover state after history restoration.
+     */
+    document.documentElement.classList.add(
+      "stackly-returning-from-404"
+    );
+
+    /*
+     * The first real mouse movement means the user is
+     * interacting again. Re-enable normal hover effects.
+     */
+    const restoreHover = function () {
+
+      document.documentElement.classList.remove(
+        "stackly-returning-from-404"
+      );
+
+      document.removeEventListener(
+        "pointermove",
+        restoreHover,
+        true
+      );
+
+      document.removeEventListener(
+        "mousemove",
+        restoreHover,
+        true
+      );
+    };
+
+    document.addEventListener(
+      "pointermove",
+      restoreHover,
+      true
+    );
+
+    document.addEventListener(
+      "mousemove",
+      restoreHover,
+      true
+    );
+
+    /*
+     * Safety fallback — never leave interaction disabled.
+     */
+    setTimeout(function () {
+      document.documentElement.classList.remove(
+        "stackly-returning-from-404"
+      );
+
+      document.removeEventListener(
+        "pointermove",
+        restoreHover,
+        true
+      );
+
+      document.removeEventListener(
+        "mousemove",
+        restoreHover,
+        true
+      );
+    }, 1500);
+  }
+
+  /*
+   * pageshow fires for normal loads and browser history/
+   * bfcache restoration.
+   */
+  window.addEventListener("pageshow", clearReturnedHover);
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#040405">
+<meta name="description" content="Stackly — Page not found.">
+<title>404 - Page Not Found | STACKLY</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --stackly-red:#e03e52;
+  --stackly-red-dark:#8f172b;
+  --stackly-red-bright:#ff7182;
+  --stackly-bg:#040405;
+  --stackly-white:#f7f7f5;
+  --stackly-muted:#8a8a90;
+  --stackly-line:rgba(255,255,255,.10);
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  width:100%;
+  max-width:100%;
+  min-height:100%;
+  overflow-x:hidden;
+}
+body{
+  background:var(--stackly-bg);
+  color:var(--stackly-white);
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--stackly-red);color:#fff}
+
+/* =========================================================
+   EXACT STACKLY PRELOADER — COPIED FROM INDEX.HTML
+   ========================================================= */
+/* =========================================================
+   STACKLY ALIEN-LUXURY PRELOADER
+   ========================================================= */
+.stackly-preloader{
+  position:fixed;
+  inset:0;
+  z-index:2147483647;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(224,62,82,.14), transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.025), transparent 42%),
+    #040405;
+  color:#fff;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .8s cubic-bezier(.22,1,.36,1), visibility .8s ease;
+}
+
+.stackly-preloader.is-done{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.sp-noise{
+  position:absolute;
+  inset:-30%;
+  opacity:.085;
+  pointer-events:none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.06) 0,
+      rgba(255,255,255,.06) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  animation:spNoise 8s steps(8,end) infinite;
+}
+
+.sp-vignette{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at center, transparent 34%, rgba(0,0,0,.3) 63%, rgba(0,0,0,.82) 100%);
+}
+
+.sp-scene{
+  position:relative;
+  width:min(760px,90vw);
+  height:min(760px,90vh);
+  min-height:540px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sp-core-glow{
+  position:absolute;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  background:rgba(224,62,82,.20);
+  filter:blur(70px);
+  animation:spGlow 2.8s ease-in-out infinite;
+}
+
+.sp-portal{
+  position:relative;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  transform:perspective(900px) rotateX(10deg);
+  filter:drop-shadow(0 0 30px rgba(224,62,82,.18));
+}
+
+.sp-portal::before,
+.sp-portal::after{
+  content:"";
+  position:absolute;
+  inset:7%;
+  border-radius:50%;
+  border:1px solid rgba(224,62,82,.18);
+  box-shadow:
+    0 0 30px rgba(224,62,82,.10),
+    inset 0 0 40px rgba(224,62,82,.08);
+}
+
+.sp-portal::after{
+  inset:17%;
+  border-color:rgba(255,255,255,.10);
+  animation:spPulseRing 2.4s ease-in-out infinite;
+}
+
+.sp-portal-ring{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.sp-ring-a{
+  inset:-5%;
+  border:1px solid rgba(224,62,82,.82);
+  box-shadow:0 0 24px rgba(224,62,82,.22);
+  animation:spSpin 6s linear infinite;
+}
+
+.sp-ring-a::before,
+.sp-ring-a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-5px;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#e03e52;
+  box-shadow:0 0 14px rgba(224,62,82,.95);
+  transform:translateX(-50%);
+}
+
+.sp-ring-a::after{
+  top:auto;
+  bottom:-5px;
+  left:20%;
+  width:4px;
+  height:4px;
+  background:#fff;
+  box-shadow:0 0 12px rgba(255,255,255,.9);
+}
+
+.sp-ring-b{
+  inset:9%;
+  border:1px dashed rgba(255,255,255,.20);
+  animation:spSpinReverse 11s linear infinite;
+}
+
+.sp-ring-c{
+  inset:25%;
+  border:1px solid rgba(224,62,82,.32);
+  animation:spSpin 4.5s linear infinite;
+}
+
+.sp-ring-c::after{
+  content:"";
+  position:absolute;
+  width:14px;
+  height:14px;
+  right:-7px;
+  top:50%;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:#e03e52;
+  box-shadow:0 0 20px rgba(224,62,82,.85);
+}
+
+.sp-portal-inner{
+  position:absolute;
+  inset:31%;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.10), transparent 25%),
+    radial-gradient(circle, rgba(224,62,82,.16), rgba(7,7,8,.97) 66%);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    inset 0 0 35px rgba(224,62,82,.12),
+    0 0 40px rgba(0,0,0,.55);
+}
+
+.sp-scan{
+  position:absolute;
+  left:15%;
+  right:15%;
+  top:31%;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg, transparent, #e03e52 35%, #fff 50%, #e03e52 65%, transparent);
+  box-shadow:0 0 16px rgba(224,62,82,.8);
+  animation:spScan 2.1s ease-in-out infinite;
+}
+
+.sp-logo-wrap{
+  position:relative;
+  z-index:4;
+  width:122px;
+  height:122px;
+  display:grid;
+  place-items:center;
+}
+
+.sp-logo-halo{
+  position:absolute;
+  inset:-10px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(224,62,82,.18), transparent 66%);
+  filter:blur(10px);
+  animation:spLogoHalo 2s ease-in-out infinite;
+}
+
+.sp-logo{
+  position:relative;
+  width:112px;
+  max-width:112px;
+  height:auto;
+  filter:
+    drop-shadow(0 0 9px rgba(224,62,82,.30))
+    drop-shadow(0 0 26px rgba(224,62,82,.17));
+  animation:spLogoFloat 2.5s ease-in-out infinite;
+}
+
+.sp-orbit{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.055);
+  pointer-events:none;
+}
+
+.sp-orbit-1{
+  width:420px;
+  height:160px;
+  transform:rotate(18deg);
+  animation:spOrbit 9s linear infinite;
+}
+
+.sp-orbit-2{
+  width:520px;
+  height:200px;
+  transform:rotate(-31deg);
+  animation:spOrbitReverse 12s linear infinite;
+}
+
+.sp-orbit-3{
+  width:650px;
+  height:260px;
+  transform:rotate(62deg);
+  opacity:.55;
+  animation:spOrbit 16s linear infinite;
+}
+
+.sp-particles{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.sp-particles span{
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#e03e52;
+  box-shadow:0 0 10px rgba(224,62,82,.85);
+  animation:spParticle var(--d) ease-in-out var(--delay) infinite;
+}
+
+.sp-copy{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:7%;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  padding:0 20px;
+}
+
+.sp-kicker{
+  color:#e03e52;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+}
+
+.sp-copy strong{
+  color:#d6d6da;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  min-height:16px;
+}
+
+.sp-progress{
+  width:min(300px,60vw);
+  height:2px;
+  margin-top:5px;
+  background:rgba(255,255,255,.08);
+  overflow:hidden;
+}
+
+.sp-progress span{
+  display:block;
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#8f172b,#e03e52,#ff7182);
+  box-shadow:0 0 12px rgba(224,62,82,.75);
+}
+
+.sp-meta{
+  width:min(300px,60vw);
+  display:flex;
+  justify-content:space-between;
+  color:#55555d;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* Keyframes */
+@keyframes spSpin{to{transform:rotate(360deg)}}
+@keyframes spSpinReverse{to{transform:rotate(-360deg)}}
+@keyframes spOrbit{to{transform:rotate(378deg)}}
+@keyframes spOrbitReverse{to{transform:rotate(-391deg)}}
+
+@keyframes spGlow{
+  0%,100%{transform:scale(.84);opacity:.45}
+  50%{transform:scale(1.08);opacity:.85}
+}
+
+@keyframes spPulseRing{
+  0%,100%{transform:scale(.94);opacity:.45}
+  50%{transform:scale(1.04);opacity:1}
+}
+
+@keyframes spScan{
+  0%,100%{transform:translateY(-38px);opacity:0}
+  20%{opacity:1}
+  50%{transform:translateY(38px);opacity:1}
+  80%{opacity:.6}
+}
+
+@keyframes spLogoHalo{
+  0%,100%{transform:scale(.82);opacity:.35}
+  50%{transform:scale(1.12);opacity:.75}
+}
+
+@keyframes spLogoFloat{
+  0%,100%{transform:translateY(0) scale(.98)}
+  50%{transform:translateY(-5px) scale(1.03)}
+}
+
+@keyframes spParticle{
+  0%,100%{transform:translate(0,0) scale(.65);opacity:.1}
+  50%{transform:translate(0,-16px) scale(1.15);opacity:1}
+}
+
+@keyframes spNoise{
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(-2%,1%)}
+  50%{transform:translate(1%,-2%)}
+  75%{transform:translate(2%,1%)}
+}
+
+@media(max-width:640px){
+  .sp-scene{
+    min-height:500px;
+  }
+
+  .sp-portal{
+    width:195px;
+    height:195px;
+  }
+
+  .sp-logo-wrap{
+    width:96px;
+    height:96px;
+  }
+
+  .sp-logo{
+    width:88px;
+    max-width:88px;
+  }
+
+  .sp-orbit-1{
+    width:300px;
+    height:116px;
+  }
+
+  .sp-orbit-2{
+    width:380px;
+    height:145px;
+  }
+
+  .sp-orbit-3{
+    width:470px;
+    height:185px;
+  }
+
+  .sp-core-glow{
+    width:220px;
+    height:220px;
+  }
+
+  .sp-copy{
+    bottom:4%;
+  }
+
+  .sp-copy strong{
+    font-size:9px;
+    letter-spacing:.12em;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .sp-noise,
+  .sp-core-glow,
+  .sp-portal-ring,
+  .sp-portal::after,
+  .sp-scan,
+  .sp-logo-halo,
+  .sp-logo,
+  .sp-orbit,
+  .sp-particles span{
+    animation:none !important;
+  }
+}
+
+/* Keep the browser's vertical scrollbar visible while the
+   preloader is active so its edge aligns with the loaded page. */
+html{
+  scrollbar-gutter: stable;
+}
+
+html.preloader-active{
+  overflow-y:scroll !important;
+  overflow-x:hidden !important;
+  scrollbar-gutter: stable;
+}
+
+html.preloader-active body{
+  overflow:hidden !important;
+}
+
+.stackly-preloader{
+  overflow:hidden !important;
+  width:100%;
+  max-width:100vw;
+}
+
+html{scrollbar-gutter:stable}
+html.preloader-active{
+  overflow-y:scroll !important;
+  overflow-x:hidden !important;
+  scrollbar-gutter:stable;
+}
+html.preloader-active body{overflow:hidden !important}
+.stackly-preloader{
+  overflow:hidden !important;
+  width:100%;
+  max-width:100vw;
+}
+
+/* =========================================================
+   404 PAGE
+   ========================================================= */
+.page-404{
+  position:relative;
+  min-height:100svh;
+  padding:70px 24px 34px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(224,62,82,.08),transparent 30%),
+    radial-gradient(circle at 90% 90%,rgba(224,62,82,.045),transparent 25%),
+    #080809;
+}
+.page-404::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:110px 110px;
+  opacity:.35;
+  mask-image:radial-gradient(circle at center,#000,transparent 72%);
+  -webkit-mask-image:radial-gradient(circle at center,#000,transparent 72%);
+}
+.error-glow{
+  position:absolute;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  background:rgba(224,62,82,.07);
+  filter:blur(100px);
+  pointer-events:none;
+}
+.error-glow.left{left:-240px;top:30%}
+.error-glow.right{right:-240px;bottom:8%}
+
+.error-content{
+  position:relative;
+  z-index:2;
+  width:min(980px,100%);
+  text-align:center;
+  margin-top:10px;
+}
+.error-code{
+  position:relative;
+  margin:0;
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
+  font-size:clamp(9rem,26vw,20rem);
+  line-height:.72;
+  font-weight:800;
+  letter-spacing:-.11em;
+  color:var(--stackly-red);
+  filter:none;
+}
+.error-code::before{
+  content:"404";
+  position:absolute;
+  inset:0;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.12);
+  transform:translate(5px,4px);
+  z-index:-1;
+}
+
+.error-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  margin-top:52px;
+  color:var(--stackly-red);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.40em;
+  text-transform:uppercase;
+}
+.error-kicker::before,.error-kicker::after{
+  content:"";
+  width:38px;
+  height:1px;
+  background:var(--stackly-red);
+  box-shadow:0 0 8px rgba(224,62,82,.5);
+}
+.error-title{
+  margin:18px 0 0;
+  font-size:clamp(2.1rem,5vw,4.5rem);
+  line-height:1;
+  letter-spacing:-.055em;
+  font-weight:800;
+}
+.error-title span{
+  color:var(--stackly-red);
+  text-shadow:0 0 20px rgba(224,62,82,.22);
+}
+.error-copy{
+  max-width:620px;
+  margin:22px auto 0;
+  color:#77777e;
+  font-size:13px;
+  line-height:1.9;
+}
+.error-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:36px;
+}
+.error-btn{
+  position:relative;
+  min-width:205px;
+  min-height:54px;
+  padding:0 24px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  color:#f5f5f6;
+  background:rgba(255,255,255,.045);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  overflow:hidden;
+  transition:
+    transform .4s cubic-bezier(.22,1,.36,1),
+    border-color .3s ease,
+    background .3s ease,
+    box-shadow .4s ease;
+}
+.error-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  transform:translateX(-115%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
+}
+.error-btn span,.error-btn i{position:relative;z-index:1}
+.error-btn i{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.error-btn.primary{
+  background:var(--stackly-red);
+  border-color:var(--stackly-red);
+  box-shadow:0 12px 36px rgba(224,62,82,.22);
+}
+.error-btn:hover{
+  transform:translateY(-5px);
+  border-color:rgba(224,62,82,.70);
+  background:rgba(224,62,82,.10);
+  box-shadow:0 18px 45px rgba(0,0,0,.35);
+}
+.error-btn.primary:hover{
+  background:#c92e42;
+  border-color:#e03e52;
+  box-shadow:0 18px 48px rgba(224,62,82,.30);
+}
+.error-btn:hover::before{transform:translateX(115%)}
+.error-btn:hover i{transform:translateX(4px)}
+
+.error-status{
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:9px;
+  color:#4f4f55;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.error-status i{
+  color:var(--stackly-red);
+  font-size:7px;
+  text-shadow:0 0 9px rgba(224,62,82,.7);
+}
+
+.error-footer{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:3;
+  min-height:48px;
+  padding:13px 18px;
+  border-top:1px solid rgba(255,255,255,.065);
+  text-align:center;
+  color:#4f4f55;
+  font-size:8px;
+  letter-spacing:.08em;
+}
+.error-footer strong{color:#737379}
+
+@media(max-width:700px){
+  .page-404{padding:88px 16px 70px}
+  .error-code{font-size:clamp(7.5rem,38vw,12rem)}
+  .error-kicker{
+    margin-top:43px;
+    font-size:8px;
+    letter-spacing:.25em;
+  }
+  .error-kicker::before,.error-kicker::after{width:22px}
+  .error-title{font-size:clamp(2rem,9vw,3rem)}
+  .error-copy{font-size:11px;line-height:1.8}
+  .error-actions{flex-direction:column;width:100%}
+  .error-btn{width:min(100%,350px)}
+}
+@media(max-width:380px){
+  .page-404{padding-left:12px;padding-right:12px}
+  .error-code{font-size:7rem}
+  .error-kicker{letter-spacing:.18em}
+  .error-title{font-size:1.85rem}
+  .error-status{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
+</style>
+</head>
+
+<body class="preloader-active">
+
+<!-- =========================================================
+     EXACT STACKLY PRELOADER MARKUP
+     ========================================================= -->
+<div id="stacklyPreloader" class="stackly-preloader" aria-label="Loading Stackly">
+  <div class="sp-noise"></div>
+  <div class="sp-vignette"></div>
+
+  <div class="sp-scene">
+    <div class="sp-orbit sp-orbit-1"></div>
+    <div class="sp-orbit sp-orbit-2"></div>
+    <div class="sp-orbit sp-orbit-3"></div>
+
+    <div class="sp-core-glow"></div>
+
+    <div class="sp-portal">
+      <div class="sp-portal-ring sp-ring-a"></div>
+      <div class="sp-portal-ring sp-ring-b"></div>
+      <div class="sp-portal-ring sp-ring-c"></div>
+      <div class="sp-portal-inner"></div>
+      <div class="sp-scan"></div>
+
+      <div class="sp-logo-wrap">
+        <div class="sp-logo-halo"></div>
+        <img
+          src="assets/images/logo/stackly_logo.webp"
+          alt="Stackly"
+          class="sp-logo"
+        />
+      </div>
+    </div>
+
+    <div class="sp-particles" aria-hidden="true">
+      <span style="--x:8%;--y:22%;--d:2.1s;--delay:.15s"></span>
+      <span style="--x:18%;--y:68%;--d:2.6s;--delay:.65s"></span>
+      <span style="--x:27%;--y:34%;--d:2.2s;--delay:1.1s"></span>
+      <span style="--x:38%;--y:78%;--d:3s;--delay:.4s"></span>
+      <span style="--x:49%;--y:16%;--d:2.4s;--delay:.8s"></span>
+      <span style="--x:59%;--y:74%;--d:2.8s;--delay:.2s"></span>
+      <span style="--x:70%;--y:29%;--d:2.3s;--delay:1.25s"></span>
+      <span style="--x:81%;--y:64%;--d:2.9s;--delay:.55s"></span>
+      <span style="--x:91%;--y:39%;--d:2.4s;--delay:1s"></span>
+      <span style="--x:74%;--y:86%;--d:2.5s;--delay:.35s"></span>
+      <span style="--x:12%;--y:48%;--d:2.7s;--delay:1.4s"></span>
+      <span style="--x:87%;--y:18%;--d:2.2s;--delay:.95s"></span>
+    </div>
+
+    <div class="sp-copy">
+      <span class="sp-kicker">STACKLY</span>
+      <strong id="spStatus">INITIALIZING EXPERIENCE</strong>
+      <div class="sp-progress">
+        <span id="spProgress"></span>
+      </div>
+      <div class="sp-meta">
+        <span id="spPercent">00%</span>
+        <span>PRIVATE • CINEMATIC • PRECISION</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 404 PAGE -->
+<main class="page-404">
+  <div class="error-glow left" aria-hidden="true"></div>
+  <div class="error-glow right" aria-hidden="true"></div>
+
+  <section class="error-content">
+    <h1 class="error-code" data-aos="zoom-in" data-aos-duration="1000">404</h1>
+
+    <div class="error-kicker" data-aos="fade-up" data-aos-delay="120">
+      PAGE NOT FOUND
+    </div>
+
+    <h2 class="error-title" data-aos="fade-up" data-aos-delay="180">
+      The page you're looking for<br>
+      <span>doesn't exist.</span>
+    </h2>
+
+    <p class="error-copy" data-aos="fade-up" data-aos-delay="240">
+      The link may have moved, the destination may no longer be available,
+      or the address may have been entered incorrectly. Let's get you back
+      to where you came from or take you home to Stackly.
+    </p>
+
+    <div class="error-actions" data-aos="fade-up" data-aos-delay="300">
+      <button type="button" class="error-btn primary" id="backBtn">
+        <span>Back to Previous Page</span>
+        <i class="fas fa-arrow-left"></i>
+      </button>
+
+      <a href="fm_dashboard.html" class="error-btn">
+        <span>Back to User Dashboard</span>
+        <i class="fas fa-laptop"></i>
+      </a>
+    </div>
+
+    <div class="error-status" data-aos="fade-up" data-aos-delay="360">
+      <i class="fas fa-circle"></i>
+      STACKLY ERROR 404
+      <i class="fas fa-circle"></i>
+    </div>
+  </section>
+
+  <footer class="error-footer">
+    © 2026 <strong>Stackly</strong> Luxury Event Planning Agency. All Rights Reserved.
+  </footer>
+</main>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+/* AOS — same animation language as the supplied index.html */
+AOS.init({
+  duration: 900,
+  easing: 'ease-out-cubic',
+  offset: 90,
+  delay: 0,
+  once: false,
+  mirror: true,
+  anchorPlacement: 'top-bottom',
+  disable: function () {
+    return false;
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  AOS.refreshHard();
+});
+
+/* =========================================================
+   EXACT STACKLY PRELOADER JS — COPIED FROM INDEX.HTML
+   ========================================================= */
+(() => {
+  const preloader = document.getElementById("stacklyPreloader");
+  const bar = document.getElementById("spProgress");
+  const percent = document.getElementById("spPercent");
+  const status = document.getElementById("spStatus");
+
+  if (!preloader || !bar || !percent || !status) return;
+
+  const states = [
+    [18, "CALIBRATING SIGNATURE"],
+    [36, "OPENING PRIVATE ACCESS"],
+    [54, "CURATING EXPERIENCE"],
+    [72, "ALIGNING DETAILS"],
+    [88, "POLISHING THE MOMENT"],
+    [100, "WELCOME TO STACKLY"]
+  ];
+
+  let current = 0;
+  let ready = false;
+  let interval;
+
+  const render = (value, text) => {
+    current = value;
+    bar.style.width = value + "%";
+    percent.textContent = String(value).padStart(2, "0") + "%";
+    status.textContent = text;
+  };
+
+  const finish = () => {
+    if (!ready) return;
+    render(100, "WELCOME TO STACKLY");
+    setTimeout(() => {
+      preloader.classList.add("is-done");
+      document.documentElement.classList.remove("preloader-active");
+      document.body.classList.remove("preloader-active");
+      clearInterval(interval);
+    }, 420);
+  };
+
+  document.documentElement.classList.add("preloader-active");
+  document.body.classList.add("preloader-active");
+
+  let i = 0;
+  interval = setInterval(() => {
+    if (i < states.length) {
+      render(states[i][0], states[i][1]);
+      i++;
+    } else {
+      clearInterval(interval);
+      finish();
+    }
+  }, 180);
+
+  window.addEventListener("load", () => {
+    ready = true;
+    if (current >= 88) finish();
+  });
+
+  /* Safety fallback in case a remote asset stalls. */
+  setTimeout(() => {
+    ready = true;
+    finish();
+  }, 2200);
+})();
+
+/* =========================================================
+   EXACT STACKLY PRELOADER JS
+   Same states/timing/fallback as the supplied index.html
+   ========================================================= */
+(() => {
+  const preloader = document.getElementById("stacklyPreloader");
+  const bar = document.getElementById("spProgress");
+  const percent = document.getElementById("spPercent");
+  const status = document.getElementById("spStatus");
+
+  if (!preloader || !bar || !percent || !status) return;
+
+  const states = [
+    [18, "CALIBRATING SIGNATURE"],
+    [36, "OPENING PRIVATE ACCESS"],
+    [54, "CURATING EXPERIENCE"],
+    [72, "ALIGNING DETAILS"],
+    [88, "POLISHING THE MOMENT"],
+    [100, "WELCOME TO STACKLY"]
+  ];
+
+  let current = 0;
+  let ready = false;
+  let interval;
+
+  const render = (value, text) => {
+    current = value;
+    bar.style.width = value + "%";
+    percent.textContent = String(value).padStart(2, "0") + "%";
+    status.textContent = text;
+  };
+
+  const finish = () => {
+    if (!ready) return;
+    render(100, "WELCOME TO STACKLY");
+    setTimeout(() => {
+      preloader.classList.add("is-done");
+      document.documentElement.classList.remove("preloader-active");
+      document.body.classList.remove("preloader-active");
+      clearInterval(interval);
+    }, 420);
+  };
+
+  document.documentElement.classList.add("preloader-active");
+  document.body.classList.add("preloader-active");
+
+  let i = 0;
+  interval = setInterval(() => {
+    if (i < states.length) {
+      render(states[i][0], states[i][1]);
+      i++;
+    } else {
+      clearInterval(interval);
+      finish();
+    }
+  }, 180);
+
+  window.addEventListener("load", () => {
+    ready = true;
+    if (current >= 88) finish();
+  });
+
+  /* Safety fallback in case a remote asset stalls. */
+  setTimeout(() => {
+    ready = true;
+    finish();
+  }, 2200);
+})();
+
+/* =========================================================
+   BACK TO PREVIOUS PAGE
+   ========================================================= */
+(function () {
+  const backBtn = document.getElementById("backBtn");
+
+  function getReturnUrl() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const value = params.get("return");
+      if (!value) return null;
+
+      const url = new URL(value, window.location.href);
+
+      /* Only allow same-site return destinations. */
+      if (url.origin !== window.location.origin) return null;
+
+      return url.href;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function goBack() {
+    /* Preferred: restore the exact page from browser history. */
+    if (window.history.length > 1 && document.referrer) {
+      try {
+        const referrer = new URL(document.referrer);
+        const current = new URL(window.location.href);
+
+        if (referrer.origin === current.origin) {
+          window.history.back();
+          return;
+        }
+      } catch (e) {}
+    }
+
+    /* Fallback for direct visits/new tabs. */
+    const returnUrl = getReturnUrl();
+
+    if (returnUrl && returnUrl !== window.location.href) {
+      window.location.href = returnUrl;
+    } else {
+      window.location.href = "index.html";
+    }
+  }
+
+  if (backBtn) {
+    backBtn.addEventListener("click", goBack);
+  }
+})();
+</script>
+
+</body>
+</html>
