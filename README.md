@@ -1,2 +1,2 @@
-# jp
-Jobs Portal
+# ep
+Event Planner
