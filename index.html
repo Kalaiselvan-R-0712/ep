@@ -3269,6 +3269,27 @@ body.menu-open {
     transform:translateY(-50%) !important;
   }
 }
+
+.global-effect-card {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.global-effect-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 59, 85, 0.45);
+    background: rgba(255, 59, 85, 0.06);
+    box-shadow: 0 10px 30px rgba(255, 59, 85, 0.12);
+}
+
+.global-effect-card:hover i {
+    transform: scale(1.15);
+}
+
+.global-effect-card i {
+    transition: transform 0.3s ease;
+}
+
 </style>
 </head>
 <body class="bg-[#0b0b0b] text-gray-100 font-sans selection:bg-brand-500 selection:text-white">
@@ -3436,12 +3457,13 @@ body.menu-open {
                     Stackly is a premier luxury event planning agency dedicated to transforming grand visions into reality. We believe every celebration is an extraordinary story waiting to be told through immaculate design, curated aesthetics, and flawless execution.
                 </p>
 <div class="grid grid-cols-2 gap-6 text-white font-semibold text-sm">
-<div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
-<i class="fa-solid fa-circle-check text-brand-500"></i> Bespoke Themes
-                    </div>
-<div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
-<i class="fa-solid fa-circle-check text-brand-500"></i> Global Vendors
-                    </div>
+    <div class="global-effect-card flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+        <i class="fa-solid fa-circle-check text-brand-500"></i> Bespoke Themes
+    </div>
+
+    <div class="global-effect-card flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+        <i class="fa-solid fa-circle-check text-brand-500"></i> Global Vendors
+    </div>
 </div>
 </div>
 <div class="grid grid-cols-2 gap-4" data-aos="fade-down-left" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
@@ -4349,8 +4371,7 @@ body.menu-open {
 </div>
 </div>
 <div class="scf-news" data-aos="flip-up" data-aos-delay="0" data-aos-duration="850" data-aos-easing="ease-out-cubic" data-aos-offset="90" data-aos-once="false">
-<span class="scf-kicker">PRIVATE ACCESS</span>
-<div class="scf-news__title">Luxury<br/><i>Notes.</i></div>
+
 <p>Subscribe to receive exclusive event design trends, luxury planning insights, and private invitation updates.</p>
 <form id="newsletterForm" class="newsletter-form" novalidate>
 <input
@@ -4369,7 +4390,6 @@ body.menu-open {
 </button>
 </form>
 <div id="newsletterError" class="newsletter-error" role="alert" aria-live="polite"></div>
-<div class="scf-news__stamp">CURATED • PRIVATE • EXCLUSIVE</div>
 </div>
 </section>
 <section class="scf-bottom scf-copyright-visible">
